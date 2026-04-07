@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0b">
+<title>Legal — ONYX Prop Futures</title>
+<link rel="icon" href="img/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="stylesheet" href="dashboard.css"/>
+<style>
+  :root{
+    --panel:#101010;--line:#222;--accent:#ff3a3a;--muted:#bdbdbd;
+    --railW:236px;--railCollapsedW:64px;--railBorder:rgba(255,120,120,.38);
+  }
+  html,body{height:100%}
+  body{margin:0;background:#0b0b0b;color:#eee;font:16px/1.6 Inter,system-ui;display:flex;min-height:100vh}
+  .page{display:flex;flex-direction:column;min-height:100vh;width:100%}
+  main{flex:1}
+  footer{flex:0 0 auto}
+
+  .sideRail{
+    position:fixed;left:0;top:18px;bottom:18px;width:var(--railCollapsedW);
+    background:linear-gradient(180deg,#141414,#0f0f0f);
+    border-right:1px solid #242424;border-top:1px solid #242424;border-bottom:1px solid #242424;
+    border-top-right-radius:18px;border-bottom-right-radius:18px;
+    box-shadow:0 18px 60px rgba(0,0,0,.55);
+    padding:12px 10px 12px 12px;z-index:1100;transition:width .18s ease;overflow:hidden
+  }
+  html.is-rail-collapsed .sideRail:hover{width:var(--railW)}
+  .sideRail[data-open="true"]{width:var(--railW)}
+  .rail-inner{height:100%;display:flex;flex-direction:column}
+  .vnav{display:flex;flex-direction:column;gap:10px;padding-right:8px}
+  .vnav a{
+    display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;text-decoration:none;font-weight:900;white-space:nowrap;
+    color:#ffe9e9;background:linear-gradient(180deg,rgba(255,58,58,.10),rgba(255,58,58,.05));
+    border:1.2px solid var(--railBorder);box-shadow:inset 0 0 0 1px rgba(255,58,58,.18),0 10px 24px rgba(255,58,58,.10);
+    transition:transform .16s,box-shadow .16s,filter .16s,background .16s
+  }
+  .vnav a:hover{filter:brightness(1.08);transform:translateY(-1px)}
+  .vnav .ico{width:20px;height:20px;color:#ffd1d1}
+  .vnav .label{display:inline}
+  .vnav .vlogo{background:transparent!important;border:0!important;box-shadow:none!important;color:#ffe9e9;padding:4px 10px 12px;line-height:0}
+  .vnav .vlogo .logo{width:58px;height:58px;display:block;overflow:visible;margin-bottom:2px}
+  .vnav .vlogo .ring{fill:none;stroke:url(#g-rail);stroke-width:3.2;filter:drop-shadow(0 6px 14px rgba(255,58,58,.22));stroke-dasharray:220;animation:railShine 7s linear infinite;vector-effect:non-scaling-stroke}
+  @keyframes railShine{0%{stroke-dashoffset:0}100%{stroke-dashoffset:-220}}
+  html.is-rail-collapsed .vnav a{justify-content:center;gap:0;padding:11px 10px}
+  html.is-rail-collapsed .vnav .label{display:none}
+  html.is-rail-collapsed .sideRail:hover .vnav a,.sideRail[data-open="true"] .vnav a{justify-content:flex-start;gap:12px;padding:11px 12px}
+  html.is-rail-collapsed .sideRail:hover .vnav .label,.sideRail[data-open="true"] .vnav .label{display:inline}
+
+  .wrap{max-width:900px;margin:0 auto;padding:40px 20px 60px}
+  .with-rail{padding-left:calc(var(--railCollapsedW) + 28px)}
+  .sideRail[data-open="true"]+main.with-rail{padding-left:calc(var(--railW) + 28px)}
+  .is-rail-collapsed .sideRail:hover+main.with-rail{padding-left:calc(var(--railW) + 28px)}
+
+  .legal-nav{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px;padding-bottom:18px;border-bottom:1px solid #222}
+  .legal-nav a{color:#ff9b9b;text-decoration:none;font-weight:800;font-size:14px;padding:6px 12px;border-radius:8px;border:1px solid rgba(255,120,120,.25);background:#111}
+  .legal-nav a:hover{background:rgba(255,58,58,.1)}
+
+  h1{font:900 28px/1.2 Inter,system-ui;margin:0 0 6px;color:#fff}
+  h2{font:800 20px/1.2 Inter,system-ui;margin:40px 0 10px;color:#fff;padding-top:20px;border-top:1px solid #1e1e1e}
+  h3{font:700 16px/1.2 Inter,system-ui;margin:24px 0 8px;color:#ddd}
+  p{color:#ccc;margin:0 0 14px;font-size:15px}
+  ul{color:#ccc;margin:0 0 14px;padding-left:20px;font-size:15px}
+  ul li{margin-bottom:6px}
+  .updated{color:#666;font-size:13px;margin-bottom:32px}
+  .highlight{background:rgba(255,58,58,.08);border:1px solid rgba(255,58,58,.2);border-radius:10px;padding:14px 16px;margin:16px 0}
+  .highlight p{margin:0;color:#ffcaca;font-size:14px}
+  .site-footer{text-align:center;color:#555;padding:16px 0 24px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <linearGradient id="g-rail" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9b9b"/>
+      <stop offset="1" stop-color="#ff3a3a"/>
+    </linearGradient>
+    <symbol id="ic-dashboard" viewBox="0 0 24 24"><path d="M4 4h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 13h7v7H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-list" viewBox="0 0 24 24"><path d="M6 6h12M6 12h12M6 18h12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ic-gem-sapphire" viewBox="0 0 24 24"><path d="M3 9l5-6h8l5 6-9 12-9-12z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-payout" viewBox="0 0 24 24"><path d="M12 3v18M5 10l7-7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-billing" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM6 10h12M6 14h7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-reset" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ic-help" viewBox="0 0 24 24"><path d="M12 18h.01M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ic-cert" viewBox="0 0 24 24"><path d="M6 3h12v14H6z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 7h6M9 10h6M9 13h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-user" viewBox="0 0 24 24"><path d="M12 13a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 21a8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="ic-logout" viewBox="0 0 24 24"><path d="M10 6V4a2 2 0 0 1 2-2h6v20h-6a2 2 0 0 1-2-2v-2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15 12H3m4-4-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <aside class="sideRail" aria-label="Sidebar navigation" id="sideRail">
+    <div class="rail-inner">
+      <nav class="vnav">
+        <a class="vlogo" href="home.html" aria-label="ONYX Home">
+          <svg class="logo" viewBox="0 0 64 64" role="img" aria-hidden="true">
+            <rect x="-3" y="-3" width="70" height="70" fill="transparent"/>
+            <path class="ring" d="M32 3 C22 19 8 29 8 43 a24 24 0 0 0 48 0 C56 29 42 19 32 3 Z"/>
+          </svg>
+          <span class="label">ONYX</span>
+        </a>
+        <a href="home.html"><svg class="ico"><use href="#ic-dashboard"/></svg><span class="label">Dashboard</span></a>
+        <a href="accounts.html"><svg class="ico"><use href="#ic-list"/></svg><span class="label">Accounts</span></a>
+        <a href="evaluations.html"><svg class="ico"><use href="#ic-gem-sapphire"/></svg><span class="label">Evaluations</span></a>
+        <a href="payouts.html"><svg class="ico"><use href="#ic-payout"/></svg><span class="label">Payouts</span></a>
+        <a href="billing.html"><svg class="ico"><use href="#ic-billing"/></svg><span class="label">Billing</span></a>
+        <a href="certificates.html"><svg class="ico"><use href="#ic-cert"/></svg><span class="label">Certificates</span></a>
+        <a href="reset.html"><svg class="ico"><use href="#ic-reset"/></svg><span class="label">Reset</span></a>
+        <a href="profile.html"><svg class="ico"><use href="#ic-user"/></svg><span class="label">Profile</span></a>
+        <a href="help-center.html"><svg class="ico"><use href="#ic-help"/></svg><span class="label">Help</span></a>
+        <a href="#" id="navLogout"><svg class="ico"><use href="#ic-logout"/></svg><span class="label">Logout</span></a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="wrap with-rail">
+
+    <nav class="legal-nav" aria-label="Legal sections">
+      <a href="#terms">Terms &amp; Conditions</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#disclaimers">Disclaimers</a>
+      <a href="#risk">Risk Disclosures</a>
+    </nav>
+
+    <!-- ===== TERMS & CONDITIONS ===== -->
+    <section id="terms">
+      <h1>Terms &amp; Conditions</h1>
+      <p class="updated">Last updated: April 2025</p>
+
+      <p>These Terms and Conditions ("Agreement") govern your access to and use of the services provided by ONYX Prop Futures ("ONYX," "we," "us," or "our"), including our evaluation programs, simulated trading accounts, and dashboard ("Services"). By purchasing any ONYX product or creating an account, you agree to be bound by this Agreement in full.</p>
+
+      <h2>1. Nature of Services</h2>
+      <p>ONYX offers simulated futures trading evaluation programs. All trading activity occurs in a simulated environment using paper trading accounts on the Rithmic platform. ONYX does not manage client funds, offer investment advisory services, or facilitate trading with real capital unless explicitly stated otherwise. Funded accounts, where offered, are simulated and do not represent ownership of actual futures contracts or real financial assets.</p>
+
+      <h2>2. Eligibility</h2>
+      <ul>
+        <li>You must be at least 18 years of age to use our Services.</li>
+        <li>You must not be a resident of a jurisdiction where participation in simulated trading programs is prohibited.</li>
+        <li>By registering, you represent and warrant that all information you provide is accurate, current, and complete.</li>
+      </ul>
+
+      <h2>3. Subscription, Billing &amp; Payment</h2>
+      <p>ONYX evaluation programs are offered as monthly recurring subscriptions. By purchasing a subscription, you authorize ONYX to charge your payment method on a recurring monthly basis until you cancel.</p>
+      <ul>
+        <li>All fees are charged in US dollars.</li>
+        <li>Subscription fees are due on the same date each month from the date of initial purchase.</li>
+        <li>Activation fees, where applicable, are charged once at the time of initial purchase and are non-refundable.</li>
+        <li>You are responsible for cancelling your subscription before your next billing date if you do not wish to be charged.</li>
+        <li>ONYX reserves the right to modify subscription pricing with 30 days' notice.</li>
+      </ul>
+
+      <div class="highlight">
+        <p><strong>All fees are non-refundable.</strong> By completing your purchase, you acknowledge that ONYX provides immediate access to a digital service (your simulated trading account and dashboard) upon payment. Because access is granted instantly and the service is intangible in nature, all sales are final. No refunds will be issued for any reason, including but not limited to: unused subscription time, failure to pass an evaluation, account violations, or change of mind.</p>
+      </div>
+
+      <h2>4. Chargebacks &amp; Disputes</h2>
+      <div class="highlight">
+        <p><strong>Chargeback Policy.</strong> Initiating a chargeback or payment dispute with your bank or payment provider for a legitimate ONYX charge constitutes a material breach of this Agreement. By purchasing, you agree to contact ONYX support at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="85f6f0f5f5eaf7f1c5eaebfcfda8e3f0f1f0f7e0f6abe6eae8">[email&#160;protected]</a> before initiating any payment dispute. In the event of an unauthorized or fraudulent chargeback, ONYX reserves the right to: (a) immediately and permanently terminate your account and all associated accounts; (b) pursue recovery of the disputed amount plus associated fees; (c) report the incident to relevant financial institutions and fraud prevention services. ONYX maintains detailed records of all transactions, account provisioning, and service delivery to contest illegitimate chargebacks.</p>
+      </div>
+
+      <h2>5. Evaluation Rules &amp; Account Conduct</h2>
+      <p>To pass an ONYX evaluation and qualify for a simulated funded (Diamond) account, you must meet all of the following conditions:</p>
+      <ul>
+        <li><strong>Profit Target:</strong> Reach the required profit target for your account size (see plan details).</li>
+        <li><strong>Minimum Trading Days:</strong> Complete a minimum of 3 trading days before the evaluation can be passed.</li>
+        <li><strong>End-of-Day Drawdown:</strong> Never exceed the maximum EOD trailing drawdown. Drawdown is calculated at market close — not intraday — giving you room to recover during the session.</li>
+        <li><strong>No Consistency Rule:</strong> There is no consistency rule during evaluation. One big green day counts. Trade your natural style.</li>
+        <li><strong>No Daily Loss Limit:</strong> There is no daily loss limit during evaluation. Your only hard limit is the EOD trailing drawdown.</li>
+        <li><strong>Contract Limits:</strong> You may not exceed the maximum contract limit for your account size at any time.</li>
+        <li><strong>Allowed Instruments:</strong> Futures contracts listed on CME, COMEX, NYMEX, and CBOT only. Stocks, options, forex, crypto, and CFDs are strictly prohibited.</li>
+        <li><strong>News Trading:</strong> You must exit all positions at least 2 minutes before scheduled major economic releases (FOMC, NFP, CPI, etc.).</li>
+        <li><strong>Maximum Accounts:</strong> Traders may hold up to 10 active accounts (evaluation or funded) simultaneously.</li>
+        <li><strong>No Prohibited Strategies:</strong> Latency arbitrage, account copying between accounts, and exploitation of system vulnerabilities are prohibited and will result in immediate disqualification.</li>
+      </ul>
+
+      <h2>6. Funded (Diamond) Accounts</h2>
+      <p>Upon passing an evaluation, you may be offered a simulated Diamond account. Diamond accounts operate under the following terms:</p>
+      <ul>
+        <li>Profit split: 80% to the trader, 20% to ONYX.</li>
+        <li>Payouts are processed weekly upon request, subject to verification.</li>
+        <li>Consistency Rule applies on funded accounts only: no single trading day may exceed 50% of total profits when requesting a payout.</li>
+        <li>Daily Loss Limit on funded accounts: you may not lose more than 50% of your account's drawdown limit in a single trading day.</li>
+        <li>News Trading: exit all positions at least 2 minutes before major scheduled economic releases.</li>
+        <li>Maximum of 10 simultaneous funded or evaluation accounts per trader.</li>
+        <li>ONYX reserves the right to reduce account size, suspend, or terminate a Diamond account for rule violations.</li>
+        <li>Diamond accounts are simulated and do not represent entitlement to real capital unless explicitly stated.</li>
+      </ul>
+
+      <h2>7. Account Resets</h2>
+      <p>If you breach the drawdown or other evaluation rules, your account will be failed. You may purchase a reset at the published reset price for your plan. Subsequent resets are offered at 50% of the standard reset price. Resets do not extend your subscription period and are non-refundable.</p>
+
+      <h2>8. Termination</h2>
+      <p>ONYX reserves the right to suspend or terminate your account at any time for violation of these Terms, fraudulent activity, abusive behavior toward staff, chargebacks, or any conduct deemed detrimental to ONYX or its community. Upon termination, no refunds will be issued for any remaining subscription period.</p>
+
+      <h2>9. Intellectual Property</h2>
+      <p>All content, software, trademarks, and materials on the ONYX platform are the exclusive property of ONYX Prop Futures. You may not copy, reproduce, or redistribute any ONYX content without prior written consent.</p>
+
+      <h2>10. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, ONYX shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the Services. ONYX's total liability to you for any claim shall not exceed the amount you paid to ONYX in the 30 days preceding the claim.</p>
+
+      <h2>11. Governing Law</h2>
+      <p>This Agreement shall be governed by and construed in accordance with the laws of the United States. Any disputes arising under this Agreement shall be resolved through binding arbitration on an individual basis. You waive any right to participate in a class action lawsuit or class-wide arbitration against ONYX.</p>
+
+      <h2>12. Amendments</h2>
+      <p>ONYX reserves the right to update these Terms at any time. Continued use of the Services after any changes constitutes acceptance of the revised Terms. We will notify users of material changes via email or dashboard notification.</p>
+
+      <h2>13. Contact</h2>
+      <p>For questions regarding these Terms, contact us at: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ef9c9a9f9f809d9baf80819697c2899a9b9a9d8a9cc18c8082">[email&#160;protected]</a></strong></p>
+    </section>
+
+    <!-- ===== PRIVACY POLICY ===== -->
+    <section id="privacy" style="margin-top:60px">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: April 2025</p>
+
+      <p>ONYX Prop Futures ("ONYX") is committed to protecting your personal information. This Privacy Policy explains what data we collect, how we use it, and your rights regarding that data.</p>
+
+      <h2>1. Information We Collect</h2>
+      <ul>
+        <li><strong>Account information:</strong> Name, email address, and password when you register.</li>
+        <li><strong>Billing information:</strong> Billing address and payment method details (processed securely by PayPal — we do not store card numbers).</li>
+        <li><strong>Trading data:</strong> Simulated trading activity, account performance, and evaluation results.</li>
+        <li><strong>Technical data:</strong> IP address, browser type, device information, and usage logs.</li>
+      </ul>
+
+      <h2>2. How We Use Your Information</h2>
+      <ul>
+        <li>To provision and manage your trading account.</li>
+        <li>To process payments and send billing communications.</li>
+        <li>To provide customer support.</li>
+        <li>To improve our platform and Services.</li>
+        <li>To comply with legal obligations.</li>
+      </ul>
+
+      <h2>3. Data Sharing</h2>
+      <p>We do not sell your personal data. We share data only with trusted service providers necessary to operate our Services (including Rithmic for account provisioning, PayPal for payment processing, and Supabase for data storage), and only to the extent necessary to provide those services.</p>
+
+      <h2>4. Data Retention</h2>
+      <p>We retain your data for as long as your account is active or as required by law. You may request deletion of your account data by contacting <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="55262025253a2721153a3b2c2d78332021202730267b363a38">[email&#160;protected]</a>.</p>
+
+      <h2>5. Security</h2>
+      <p>We implement industry-standard security measures to protect your data, including encryption in transit and at rest. However, no method of transmission over the internet is 100% secure.</p>
+
+      <h2>6. Your Rights</h2>
+      <p>Depending on your location, you may have rights to access, correct, or delete your personal data. Contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="44373134342b3630042b2a3d3c69223130313621376a272b29">[email&#160;protected]</a> to exercise these rights.</p>
+
+      <h2>7. Cookies</h2>
+      <p>We use cookies and similar technologies to maintain your session and improve your experience. You may disable cookies in your browser settings, but this may affect functionality.</p>
+
+      <h2>8. Contact</h2>
+      <p>For privacy-related questions: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="34474144445b4640745b5a4d4c19524140414651471a575b59">[email&#160;protected]</a></strong></p>
+    </section>
+
+    <!-- ===== DISCLAIMERS ===== -->
+    <section id="disclaimers" style="margin-top:60px">
+      <h1>Disclaimers</h1>
+      <p class="updated">Last updated: April 2025</p>
+
+      <h2>No Financial Advice</h2>
+      <p>Nothing on the ONYX platform constitutes financial, investment, legal, or tax advice. All content is provided for educational and informational purposes only. You should consult a qualified financial professional before making any investment decisions.</p>
+
+      <h2>Simulated Trading Environment</h2>
+      <p>All trading on the ONYX platform occurs in a simulated environment. Results achieved in simulated trading are not indicative of results that would be achieved in live trading with real capital. Simulated trading programs are designed for educational purposes and skill assessment only.</p>
+
+      <h2>No Guarantee of Profit</h2>
+      <p>ONYX makes no guarantee that you will pass an evaluation, receive a funded account, or earn any profits. Past performance of any trader or strategy is not indicative of future results.</p>
+
+      <h2>CFTC Rule 4.41</h2>
+      <p>Hypothetical or simulated performance results have certain inherent limitations. Unlike an actual performance record, simulated results do not represent actual trading. Also, since the trades have not actually been executed, the results may have under- or over-compensated for the impact, if any, of certain market factors, such as lack of liquidity. Simulated trading programs in general are also subject to the fact that they are designed with the benefit of hindsight. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown.</p>
+
+      <h2>Platform Availability</h2>
+      <p>ONYX does not guarantee uninterrupted access to the platform or trading services. Scheduled and unscheduled maintenance, third-party outages, or technical issues may affect availability. ONYX is not liable for losses or missed opportunities resulting from platform downtime.</p>
+    </section>
+
+    <!-- ===== RISK DISCLOSURES ===== -->
+    <section id="risk" style="margin-top:60px">
+      <h1>Risk Disclosures</h1>
+      <p class="updated">Last updated: April 2025</p>
+
+      <h2>Futures Trading Risk</h2>
+      <p>Trading futures contracts involves substantial risk of loss and is not appropriate for all investors. Futures prices can be highly volatile and subject to rapid and unexpected changes due to a wide variety of factors including, but not limited to, government policy, political and economic conditions, weather, and other factors. Only risk capital — money you can afford to lose — should be used in any trading activity.</p>
+
+      <h2>Leverage Risk</h2>
+      <p>Futures contracts are leveraged instruments. This means a small price movement can result in a large gain or loss relative to the margin deposited. Leverage amplifies both profits and losses.</p>
+
+      <h2>Evaluation Program Risk</h2>
+      <p>Participation in an ONYX evaluation program does not guarantee a funded account. You may lose your evaluation fee if you fail to meet the evaluation criteria. Evaluation fees are non-refundable regardless of outcome.</p>
+
+      <h2>Market Risk</h2>
+      <p>All markets are subject to risk. Past results of any individual trader or trading system are not indicative of future performance. There is no guarantee that any trading methodology or system will be profitable.</p>
+
+      <h2>Technology Risk</h2>
+      <p>Electronic trading involves risks including, but not limited to, hardware failures, software defects, internet connectivity issues, and data feed interruptions. These factors may affect the ability to enter, modify, or cancel orders.</p>
+
+      <h2>Regulatory Risk</h2>
+      <p>Changes in applicable laws, regulations, or tax treatment may affect the availability or terms of ONYX's services. ONYX does not provide legal or tax advice and recommends consulting qualified professionals regarding your specific situation.</p>
+
+      <p style="margin-top:30px;color:#888;font-size:13px">For questions about any of these disclosures, contact us at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7f0c0a0f0f100d0b3f1011060752190a0b0a0d1a0c511c1012">[email&#160;protected]</a></strong>.</p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer"><p>© 2025 ONYX Prop Futures • All rights reserved.</p></footer>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/@supabase/supabase-js@2" defer></script>
+<script>
+  document.documentElement.classList.add('is-rail-collapsed');
+  const rail = document.getElementById('sideRail');
+  function isTouch(){return window.matchMedia('(hover: none)').matches}
+  function setRailOpen(open){
+    if(!rail) return;
+    rail.dataset.open = open?'true':'false';
+    document.documentElement.classList.toggle('rail-open',!!open);
+  }
+  rail?.addEventListener('click',(e)=>{
+    if(!isTouch()) return;
+    if(e.target.closest('a')){setRailOpen(false);return;}
+    setRailOpen(rail.getAttribute('data-open')!=='true');
+  });
+  document.addEventListener('click',(e)=>{if(!isTouch()||!rail) return; if(!rail.contains(e.target)) setRailOpen(false);});
+  document.getElementById(
