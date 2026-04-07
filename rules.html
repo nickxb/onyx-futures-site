@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="description" content="ONYX Prop Futures — Complete trading rules for evaluation and funded accounts. EOD drawdown, no consistency rule, no daily loss limit.">
+<title>Trading Rules — ONYX Prop Futures</title>
+<link rel="icon" href="img/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0b0b0b;--bg2:#0f0f0f;--bg3:#131313;--line:#1e1e1e;--line2:#2a2a2a;
+  --red:#ff3a3a;--red2:#ff6b6b;--red3:#ff9b9b;--muted:#888;--text:#eaeef2;--text2:#ccc;
+  --green:#34d399;--blue:#60a5fa;--yellow:#fbbf24;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(11,11,11,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:18px;color:#ffe9e9}
+.nav-logo svg{width:36px;height:36px}
+.nav-logo .ring{fill:none;stroke:url(#g-nav);stroke-width:3.2;stroke-dasharray:220;animation:spin 7s linear infinite;vector-effect:non-scaling-stroke}
+@keyframes spin{to{stroke-dashoffset:-220}}
+.nav-links{display:flex;align-items:center;gap:8px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:10px;transition:.15s}
+.nav-links a:hover{color:var(--text);background:rgba(255,58,58,.08)}
+.nav-cta{background:linear-gradient(135deg,var(--red),var(--red2));color:#000!important;border-radius:10px;font-weight:900!important}
+@media(max-width:640px){nav{padding:0 16px}.nav-links li:not(:last-child){display:none}}
+
+.page{padding-top:64px;display:flex}
+.sidebar{position:fixed;top:64px;left:0;bottom:0;width:240px;overflow-y:auto;background:var(--bg2);border-right:1px solid var(--line);padding:24px 0}
+.sidebar-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);padding:8px 20px 4px}
+.sidebar a{display:block;padding:8px 20px;font-size:13px;font-weight:700;color:var(--text2);text-decoration:none;transition:.12s;border-left:2px solid transparent}
+.sidebar a:hover{color:var(--text);background:rgba(255,255,255,.03)}
+.sidebar a.active{color:var(--red3);border-left-color:var(--red);background:rgba(255,58,58,.05)}
+@media(max-width:900px){.sidebar{display:none}.content{margin-left:0!important}footer{margin-left:0!important}}
+
+.content{margin-left:240px;flex:1;max-width:860px;padding:40px 40px 80px}
+@media(max-width:640px){.content{padding:24px 16px 60px}}
+
+.rules-hero{margin-bottom:48px}
+.rules-hero .lbl{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin-bottom:10px}
+.rules-hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,80px);line-height:.95;letter-spacing:.02em;color:#fff;margin-bottom:12px}
+.rules-hero p{font-size:16px;color:var(--text2);max-width:580px}
+.updated{font-size:12px;color:var(--muted);margin-top:8px}
+
+.rule-section{margin-bottom:56px;scroll-margin-top:80px}
+.rule-section h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,40px);letter-spacing:.02em;color:#fff;margin-bottom:6px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.phase-badge{font-family:'Inter',sans-serif;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;padding:4px 10px;border-radius:999px}
+.eval{background:rgba(251,191,36,.1);color:var(--yellow);border:1px solid rgba(251,191,36,.2)}
+.funded{background:rgba(96,165,250,.1);color:var(--blue);border:1px solid rgba(96,165,250,.2)}
+.both{background:rgba(52,211,153,.1);color:var(--green);border:1px solid rgba(52,211,153,.2)}
+.section-desc{font-size:14px;color:var(--muted);margin-bottom:20px;max-width:600px;line-height:1.6}
+.divider{border:none;border-top:1px solid var(--line);margin:48px 0}
+
+.hl{border-radius:12px;padding:16px 20px;margin-bottom:20px}
+.hl p{font-size:14px;margin:0;line-height:1.6}
+.hl strong{color:#fff}
+.hl.red{background:rgba(255,58,58,.06);border:1px solid rgba(255,58,58,.2)}.hl.red p{color:#ffcaca}
+.hl.green{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2)}.hl.green p{color:#a7f3d0}
+.hl.yellow{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.2)}.hl.yellow p{color:#fde68a}
+
+.rule-list{display:flex;flex-direction:column;gap:6px}
+.rule-row{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg2)}
+.rl{padding:14px 18px;border-right:1px solid var(--line)}
+.rr{padding:14px 18px}
+.rn{font-size:13px;font-weight:900;color:#fff;margin-bottom:2px}
+.rd{font-size:12px;color:var(--muted);line-height:1.5}
+.rv{font-size:14px;font-weight:900;color:var(--text)}
+.rv.g{color:var(--green)}.rv.r{color:var(--red3)}.rv.b{color:var(--blue)}.rv.y{color:var(--yellow)}
+.rs{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
+@media(max-width:560px){.rule-row{grid-template-columns:1fr}.rl{border-right:none;border-bottom:1px solid var(--line)}}
+
+.size-wrap{overflow-x:auto;margin-top:4px}
+table.st{width:100%;border-collapse:collapse;font-size:13px;min-width:540px}
+table.st th,table.st td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left}
+table.st thead th{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);background:var(--bg3)}
+table.st td:first-child{font-weight:900;color:#fff}
+table.st tbody tr:hover td{background:rgba(255,255,255,.02)}
+.pill{display:inline-flex;padding:2px 9px;border-radius:999px;font-size:11px;font-weight:900}
+.pr{background:rgba(255,58,58,.1);color:var(--red3);border:1px solid rgba(255,58,58,.2)}
+
+.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+.tab{padding:8px 16px;border-radius:9px;border:1.5px solid var(--line2);background:var(--bg2);color:var(--text2);font-weight:800;font-size:13px;cursor:pointer;transition:.14s}
+.tab.active{background:rgba(255,58,58,.1);border-color:rgba(255,58,58,.3);color:#ffcaca}
+
+.prohibit-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.prohibit-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);padding:12px 16px;background:var(--bg2);border:1px solid var(--line);border-radius:11px;line-height:1.5}
+.prohibit-list li .x{color:var(--red);font-weight:900;flex-shrink:0;margin-top:1px;font-size:14px}
+.prohibit-list li strong{color:#fff}
+
+.inst-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.inst{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.inst h4{font-size:13px;font-weight:900;color:#fff;margin-bottom:4px}
+.inst p{font-size:12px;color:var(--muted);line-height:1.5}
+
+.rules-cta{background:linear-gradient(135deg,rgba(255,58,58,.1),rgba(255,107,107,.04));border:1px solid rgba(255,58,58,.2);border-radius:18px;padding:40px 32px;text-align:center;margin-top:48px}
+.rules-cta h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,52px);color:#fff;letter-spacing:.02em;margin-bottom:10px}
+.rules-cta p{font-size:15px;color:var(--text2);margin-bottom:24px}
+.btn-p{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:linear-gradient(135deg,var(--red),var(--red2));color:#000;font-weight:900;font-size:14px;border-radius:12px;text-decoration:none;transition:.18s}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(255,58,58,.28)}
+.btn-g{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:transparent;color:var(--text);font-weight:800;font-size:14px;border-radius:12px;text-decoration:none;border:1.5px solid var(--line2);transition:.18s;margin-left:10px}
+.btn-g:hover{border-color:rgba(255,58,58,.35);background:rgba(255,58,58,.05)}
+
+footer{border-top:1px solid var(--line);padding:28px 40px;text-align:center;font-size:12px;color:var(--muted);background:var(--bg2);margin-left:240px}
+footer a{color:var(--muted);text-decoration:none;margin:0 10px}
+footer a:hover{color:var(--red3)}
+</style>
+</head>
+<body>
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-nav" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9b9b"/><stop offset="1" stop-color="#ff3a3a"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path class="ring" d="M32 3 C22 19 8 29 8 43 a24 24 0 0 0 48 0 C56 29 42 19 32 3 Z"/></svg>
+    ONYX
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="https://dashboard.onyx-futures.com/legal.html">Legal</a></li>
+    <li><a href="https://dashboard.onyx-futures.com/login.html" class="nav-cta">Get Started →</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-label">Overview</div>
+    <a href="#overview" class="active">Quick Summary</a>
+    <a href="#account-sizes">Account Sizes</a>
+    <div class="sidebar-label" style="margin-top:8px">Phase 1 — Evaluation</div>
+    <a href="#eval-rules">Evaluation Rules</a>
+    <div class="sidebar-label" style="margin-top:8px">Phase 2 — Funded</div>
+    <a href="#funded-rules">Diamond Rules</a>
+    <a href="#payout-rules">Payout Rules</a>
+    <div class="sidebar-label" style="margin-top:8px">General</div>
+    <a href="#instruments">Allowed Instruments</a>
+    <a href="#prohibited">Prohibited Activity</a>
+    <a href="#glossary">Glossary</a>
+  </aside>
+
+  <main class="content">
+
+    <div class="rules-hero" id="overview">
+      <p class="lbl">Trading Rules</p>
+      <h1>Complete Rule Set.<br>No Surprises.</h1>
+      <p>Every rule for every phase, clearly explained. Read this before you start your evaluation.</p>
+      <p class="updated">Last updated: April 2026</p>
+    </div>
+
+    <!-- QUICK SUMMARY -->
+    <div class="rule-section">
+      <h2>Quick Summary</h2>
+      <p class="section-desc">The most important things to know across both phases at a glance.</p>
+      <div class="hl green"><p><strong>What ONYX removes that most firms keep:</strong> No consistency rule during evaluation. No daily loss limit during evaluation. EOD drawdown only — calculated at close, never intraday. These three things make ONYX significantly more trader-friendly than the industry average.</p></div>
+      <div class="rule-list">
+        <div class="rule-row"><div class="rl"><div class="rn">Drawdown Type</div><div class="rd">How your max loss is calculated</div></div><div class="rr"><div class="rv g">EOD Trailing Only</div><div class="rs">Calculated at market close. Intraday dips that recover by close do not fail the account.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule (Eval)</div><div class="rd">Profit distribution requirement</div></div><div class="rr"><div class="rv g">None</div><div class="rs">No consistency rule during evaluation. One big day counts.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit (Eval)</div><div class="rd">Max you can lose in one day</div></div><div class="rr"><div class="rv g">None</div><div class="rs">No DLL during evaluation. Your only limit is EOD trailing drawdown.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Minimum Trading Days</div><div class="rd">Days required before eval can be passed</div></div><div class="rr"><div class="rv">3 Days</div><div class="rs">Must trade at least 3 days. No maximum time limit.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Min Hold Time</div><div class="rd">Shortest a trade can be open</div></div><div class="rr"><div class="rv y">2 Minutes</div><div class="rs">All trades must be held at least 2 minutes. No tick scalping.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">News Trading</div><div class="rd">Major economic release rule</div></div><div class="rr"><div class="rv y">Exit 2 Min Before</div><div class="rs">Close all positions at least 2 minutes before FOMC, NFP, CPI, and other tier-1 releases.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Profit Split (Diamond)</div><div class="rd">Your share of funded profits</div></div><div class="rr"><div class="rv g">80% to Trader</div><div class="rs">You keep 80%. ONYX takes 20%.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Payout Frequency</div><div class="rd">How often you can withdraw</div></div><div class="rr"><div class="rv b">Weekly</div><div class="rs">Request a payout once per week. Processed within 3–5 business days.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Max Simultaneous Accounts</div><div class="rd">Total active accounts allowed</div></div><div class="rr"><div class="rv">10 Accounts</div><div class="rs">Hold up to 10 evaluation or funded accounts at once. Each purchased and passed independently.</div></div></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ACCOUNT SIZES -->
+    <div class="rule-section" id="account-sizes">
+      <h2>Account Sizes <span class="phase-badge both">All Phases</span></h2>
+      <p class="section-desc">Choose from 25K to 150K. Two pricing paths — No Activation Fee or With Activation.</p>
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('noact',this)">No Activation Fee</button>
+        <button class="tab" onclick="switchTab('withact',this)">With Activation ($85)</button>
+      </div>
+      <div id="tab-noact" class="size-wrap">
+        <table class="st">
+          <thead><tr><th>Size</th><th>Monthly</th><th>Profit Target</th><th>EOD Drawdown</th><th>Max Contracts</th><th>Min Days</th><th>Reset</th></tr></thead>
+          <tbody>
+            <tr><td>25K</td><td><span class="pill pr">$99/mo</span></td><td>$1,500</td><td>$1,500</td><td>3 (Micros ×10)</td><td>3</td><td>$79</td></tr>
+            <tr><td>50K</td><td><span class="pill pr">$149/mo</span></td><td>$3,000</td><td>$2,000</td><td>6 (Micros ×10)</td><td>3</td><td>$119</td></tr>
+            <tr><td>100K</td><td><span class="pill pr">$199/mo</span></td><td>$6,000</td><td>$3,000</td><td>12 (Micros ×10)</td><td>3</td><td>$159</td></tr>
+            <tr><td>150K</td><td><span class="pill pr">$269/mo</span></td><td>$9,000</td><td>$5,000</td><td>15 (Micros ×10)</td><td>3</td><td>$199</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="tab-withact" class="size-wrap" style="display:none">
+        <table class="st">
+          <thead><tr><th>Size</th><th>Monthly</th><th>Activation</th><th>Profit Target</th><th>EOD Drawdown</th><th>Max Contracts</th><th>Reset</th></tr></thead>
+          <tbody>
+            <tr><td>25K</td><td><span class="pill pr">$59/mo</span></td><td>$85</td><td>$1,500</td><td>$1,500</td><td>3 (Micros ×10)</td><td>$49</td></tr>
+            <tr><td>50K</td><td><span class="pill pr">$89/mo</span></td><td>$85</td><td>$3,000</td><td>$2,000</td><td>6 (Micros ×10)</td><td>$69</td></tr>
+            <tr><td>100K</td><td><span class="pill pr">$119/mo</span></td><td>$85</td><td>$6,000</td><td>$3,000</td><td>12 (Micros ×10)</td><td>$99</td></tr>
+            <tr><td>150K</td><td><span class="pill pr">$159/mo</span></td><td>$85</td><td>$9,000</td><td>$5,000</td><td>15 (Micros ×10)</td><td>$129</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="hl yellow" style="margin-top:14px"><p><strong>Which path?</strong> Choose <strong>With Activation</strong> if you expect to pass quickly — lower monthly cost, $85 only when funded. Choose <strong>No Activation Fee</strong> for zero surprise costs when you pass.</p></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- EVALUATION RULES -->
+    <div class="rule-section" id="eval-rules">
+      <h2>Evaluation Rules <span class="phase-badge eval">Phase 1 — Sapphire</span></h2>
+      <p class="section-desc">Rules that apply during your Sapphire evaluation account. Pass these to qualify for a Diamond funded account.</p>
+      <div class="hl green"><p><strong>The short version:</strong> Hit your profit target over a minimum of 3 trading days without breaching EOD trailing drawdown. No consistency rule. No daily loss limit. No time pressure. Just trade.</p></div>
+      <div class="rule-list">
+        <div class="rule-row"><div class="rl"><div class="rn">Profit Target</div><div class="rd">Net profit required to pass</div></div><div class="rr"><div class="rv">See size table above</div><div class="rs">$1,500 to $9,000 depending on account size. Net of commissions and fees.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Minimum Trading Days</div><div class="rd">Days with at least one trade</div></div><div class="rr"><div class="rv">3 Days</div><div class="rs">Must complete at least 3 trading days before the evaluation can be passed. No maximum time limit.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">EOD Trailing Drawdown</div><div class="rd">Your max loss threshold</div></div><div class="rr"><div class="rv r">Never breach at close</div><div class="rs">Trailing drawdown updates once per day at market close. Intraday dips that recover before close do NOT fail the account.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div><div class="rd">Profit distribution requirement</div></div><div class="rr"><div class="rv g">None</div><div class="rs">No consistency rule during evaluation. One massive green day is valid. Trade your natural style.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit</div><div class="rd">Max intraday loss allowed</div></div><div class="rr"><div class="rv g">None</div><div class="rs">No daily loss limit during evaluation. Your only hard limit is the EOD trailing drawdown at close.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Min Hold Time</div><div class="rd">Minimum trade duration</div></div><div class="rr"><div class="rv y">2 Minutes</div><div class="rs">All trades must be held open for at least 2 minutes. Tick scalping and rapid-fire entries under 2 minutes are prohibited.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">News Trading</div><div class="rd">Economic release rule</div></div><div class="rr"><div class="rv y">Exit 2 min before</div><div class="rs">Close all open positions at least 2 minutes before FOMC, NFP, CPI, PPI, FOMC minutes, and other tier-1 releases.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Contract Limits</div><div class="rd">Max contracts at any time</div></div><div class="rr"><div class="rv r">Never exceed limit</div><div class="rs">Do not exceed your account's max contract limit at any time. 1 standard contract = 10 micro contracts toward your limit.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Overnight / Weekend Holds</div><div class="rd">Holding after market close</div></div><div class="rr"><div class="rv g">Allowed</div><div class="rs">Positions may be held overnight and over the weekend. EOD drawdown is calculated at each market close.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Automated / Algo Trading</div><div class="rd">Bots and automated strategies</div></div><div class="rr"><div class="rv g">Allowed</div><div class="rs">Automated strategies are permitted. Your algo must respect all rules including the 2-minute hold time and news exit rule.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Time Limit</div><div class="rd">How long you have to pass</div></div><div class="rr"><div class="rv g">No Limit</div><div class="rs">Your subscription renews monthly and keeps your evaluation active indefinitely. Take as long as you need.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Resets</div><div class="rd">What happens if you breach drawdown</div></div><div class="rr"><div class="rv">Purchase a reset</div><div class="rs">If you fail, purchase a reset at the published price. All subsequent resets are 50% off the standard reset price.</div></div></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- FUNDED RULES -->
+    <div class="rule-section" id="funded-rules">
+      <h2>Diamond Account Rules <span class="phase-badge funded">Phase 2 — Funded</span></h2>
+      <p class="section-desc">Rules that apply once you're funded. A few additional guardrails activate to protect the account long-term.</p>
+      <div class="hl red"><p><strong>Key changes from evaluation:</strong> The consistency rule and daily loss limit now apply. These are standard industry protections ensuring one bad day can't destroy a funded account. EOD drawdown remains — no intraday trailing on funded accounts.</p></div>
+      <div class="rule-list">
+        <div class="rule-row"><div class="rl"><div class="rn">Profit Split</div><div class="rd">Your share of profits</div></div><div class="rr"><div class="rv g">80% to Trader</div><div class="rs">You keep 80% of all net profits. ONYX takes 20%.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">EOD Drawdown</div><div class="rd">Max loss threshold</div></div><div class="rr"><div class="rv r">Same as evaluation</div><div class="rs">EOD trailing drawdown continues on funded accounts. Still calculated at close only — not intraday.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit</div><div class="rd">Max loss in one day</div></div><div class="rr"><div class="rv r">50% of drawdown limit</div><div class="rs">Example: 50K account ($2,000 drawdown) → $1,000 DLL. Hitting DLL pauses trading for the day. Account is NOT failed.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div><div class="rd">Max single day profit at payout</div></div><div class="rr"><div class="rv r">50% max single day</div><div class="rs">At time of payout, no single day may exceed 50% of total net profit since last withdrawal.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Min Hold Time</div><div class="rd">Minimum trade duration</div></div><div class="rr"><div class="rv y">2 Minutes</div><div class="rs">Same as evaluation. All trades must be held at least 2 minutes.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">News Trading</div><div class="rd">Economic release rule</div></div><div class="rr"><div class="rv y">Exit 2 min before</div><div class="rs">Same as evaluation. Exit all positions at least 2 minutes before tier-1 economic releases.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Weekly Activity Requirement</div><div class="rd">Minimum trading frequency</div></div><div class="rr"><div class="rv r">1 trade per week</div><div class="rs">Funded accounts must have at least one trade per calendar week (Sun–Fri) to remain active. Inactive accounts suspended after 2 consecutive weeks.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Overnight / Weekend Holds</div><div class="rd">Holding after close</div></div><div class="rr"><div class="rv g">Allowed</div><div class="rs">Positions may be held overnight and over the weekend on funded accounts.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Max Simultaneous Accounts</div><div class="rd">Total funded accounts allowed</div></div><div class="rr"><div class="rv">Up to 10</div><div class="rs">Hold up to 10 funded accounts simultaneously. Each account purchased and passed independently.</div></div></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- PAYOUT RULES -->
+    <div class="rule-section" id="payout-rules">
+      <h2>Payout Rules <span class="phase-badge funded">Diamond Only</span></h2>
+      <p class="section-desc">Everything you need to know about requesting and receiving profits from your Diamond account.</p>
+      <div class="rule-list">
+        <div class="rule-row"><div class="rl"><div class="rn">Payout Frequency</div><div class="rd">How often you can request</div></div><div class="rr"><div class="rv b">Once per week</div><div class="rs">Submit one payout request per week. Processing takes 3–5 business days.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Minimum Payout</div><div class="rd">Smallest amount you can withdraw</div></div><div class="rr"><div class="rv">$200</div><div class="rs">Minimum payout request is $200. Requests below this amount will not be processed.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Maximum Per Request</div><div class="rd">Most you can withdraw at once</div></div><div class="rr"><div class="rv">$15,000</div><div class="rs">Maximum per request is $15,000 regardless of account size or total profits. Multiple weekly requests allowed.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Buffer Requirement</div><div class="rd">Balance needed before first payout</div></div><div class="rr"><div class="rv r">$500 above starting balance</div><div class="rs">Your account must be at least $500 above your starting balance before your first payout is eligible.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Min Winning Days</div><div class="rd">Before first payout request</div></div><div class="rr"><div class="rv">5 Winning Days</div><div class="rs">Your funded account must have at least 5 profitable trading days before submitting your first payout request.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Consistency Check at Payout</div><div class="rd">Applied when you request</div></div><div class="rr"><div class="rv r">50% max single day</div><div class="rs">At time of request, no single day may exceed 50% of total net profits since your last payout.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Rule Compliance Required</div><div class="rd">Account status at payout</div></div><div class="rr"><div class="rv r">Full compliance</div><div class="rs">Account must be in full compliance with all trading rules. Open violations will delay or block payout processing.</div></div></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- INSTRUMENTS -->
+    <div class="rule-section" id="instruments">
+      <h2>Allowed Instruments <span class="phase-badge both">Both Phases</span></h2>
+      <p class="section-desc">ONYX is futures-only. All major CME Group markets supported. Micro contracts = 1/10th of a standard contract toward your limit.</p>
+      <div class="inst-grid">
+        <div class="inst"><h4>📈 Equity Index</h4><p>ES, NQ, YM, RTY<br>Micros: MES, MNQ, MYM, M2K</p></div>
+        <div class="inst"><h4>🛢️ Energy</h4><p>Crude Oil (CL), Natural Gas (NG)<br>Micro Crude (MCL)</p></div>
+        <div class="inst"><h4>🥇 Metals</h4><p>Gold (GC), Silver (SI), Copper (HG)<br>Micro Gold (MGC)</p></div>
+        <div class="inst"><h4>💵 Currencies</h4><p>6E, 6B, 6J, 6A, 6C, 6S<br>Euro, GBP, Yen, AUD, CAD, CHF</p></div>
+        <div class="inst"><h4>🌽 Agriculture</h4><p>Corn (ZC), Soybeans (ZS), Wheat (ZW)<br>Lean Hogs (HE), Live Cattle (LE)</p></div>
+        <div class="inst"><h4>📊 Interest Rates</h4><p>Treasury Bonds (ZB), 10-Yr (ZN)<br>5-Yr (ZF), 2-Yr (ZT)</p></div>
+      </div>
+      <div class="hl red" style="margin-top:14px"><p><strong>Not allowed:</strong> Stocks, stock options, spot forex, cryptocurrencies, CFDs, or any instrument not listed as a CME/CBOT/NYMEX/COMEX futures contract. Trading prohibited instruments results in immediate account termination with no refund.</p></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- PROHIBITED -->
+    <div class="rule-section" id="prohibited">
+      <h2>Prohibited Activity <span class="phase-badge both">Both Phases</span></h2>
+      <p class="section-desc">These violations result in immediate account termination with no refund. No warnings. No appeals on clear violations.</p>
+      <ul class="prohibit-list">
+        <li><span class="x">✗</span><div><strong>Exceeding contract limits</strong> — Going over your account's max contract size at any time. 1 standard = 10 micros toward your limit.</div></li>
+        <li><span class="x">✗</span><div><strong>Trading prohibited instruments</strong> — Stocks, options, spot forex, crypto, CFDs, or any non-CME futures instrument.</div></li>
+        <li><span class="x">✗</span><div><strong>Holding through news</strong> — Failing to close all positions at least 2 minutes before a scheduled tier-1 economic release.</div></li>
+        <li><span class="x">✗</span><div><strong>Tick scalping</strong> — Entering and exiting trades in under 2 minutes. All positions must be held a minimum of 2 minutes.</div></li>
+        <li><span class="x">✗</span><div><strong>Latency arbitrage</strong> — Any strategy exploiting price feed delays, quote stuffing, or system latency.</div></li>
+        <li><span class="x">✗</span><div><strong>Account sharing</strong> — Allowing another person to trade your account or sharing your login credentials with anyone.</div></li>
+        <li><span class="x">✗</span><div><strong>Cross-account copying</strong> — Using a trade copier to mirror trades across your own ONYX accounts to manipulate or inflate performance.</div></li>
+        <li><span class="x">✗</span><div><strong>Exploiting system errors</strong> — Taking advantage of platform bugs, pricing errors, or technical issues to generate artificial profits.</div></li>
+        <li><span class="x">✗</span><div><strong>All-or-nothing sizing</strong> — Placing your full maximum contract allocation into a single trade with no risk management structure.</div></li>
+        <li><span class="x">✗</span><div><strong>Chargebacks without contacting support</strong> — Initiating a payment dispute with your bank or PayPal without first emailing support@onyx-futures.com. This is a material breach and results in a permanent ban.</div></li>
+        <li><span class="x">✗</span><div><strong>Funded account inactivity</strong> — Failing to place at least one trade per calendar week on a Diamond account. Accounts suspended after 2 consecutive inactive weeks.</div></li>
+      </ul>
+    </div>
+
+    <hr class="divider">
+
+    <!-- GLOSSARY -->
+    <div class="rule-section" id="glossary">
+      <h2>Glossary</h2>
+      <p class="section-desc">Key terms explained simply.</p>
+      <div class="rule-list">
+        <div class="rule-row"><div class="rl"><div class="rn">EOD Trailing Drawdown</div></div><div class="rr"><div class="rs">End-of-Day trailing drawdown. Your max loss threshold updates once per day at market close, based on your highest closing balance. Intraday dips below the threshold that recover before close do not fail the account.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit (DLL)</div></div><div class="rr"><div class="rs">Max you can lose in a single session. On ONYX funded accounts this is 50% of your EOD drawdown. Hitting DLL pauses trading for the day — it does not fail the account.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div></div><div class="rr"><div class="rs">A payout rule on funded accounts. No single trading day may represent more than 50% of total profits at time of payout request. Applies only on funded accounts — NOT during evaluation.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Buffer Requirement</div></div><div class="rr"><div class="rs">Minimum profit threshold before your first payout. On ONYX your account must be at least $500 above starting balance before the first payout is eligible.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Sapphire Account</div></div><div class="rr"><div class="rs">ONYX's evaluation account. Trade in a simulated environment and hit your profit target while following the rules to qualify for a Diamond funded account.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Diamond Account</div></div><div class="rr"><div class="rs">ONYX's funded account. Awarded after passing the Sapphire evaluation. Trade with firm capital and withdraw 80% of profits weekly.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Micro Contracts</div></div><div class="rr"><div class="rs">Micro futures (MES, MNQ, etc.) are 1/10th the size of a standard contract. Your contract limit counts 10 micros as 1 standard contract.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Reset</div></div><div class="rr"><div class="rs">If you breach EOD drawdown during evaluation, your account fails. Purchase a reset to restart with a fresh account at the same size. All subsequent resets are 50% off.</div></div></div>
+      </div>
+    </div>
+
+    <div class="rules-cta">
+      <h2>Ready to Start?</h2>
+      <p>No consistency rule. EOD drawdown. 3 min days. Weekly payouts.</p>
+      <a href="https://dashboard.onyx-futures.com/login.html" class="btn-p">Start Your Evaluation →</a>
+      <a href="https://dashboard.onyx-futures.com/legal.html" class="btn-g">Full Legal Terms</a>
+    </div>
+
+  </main>
+</div>
+
+<footer style="margin-left:240px">
+  <p>© 2025 ONYX Prop Futures • All rights reserved •
+    <a href="https://dashboard.onyx-futures.com/legal.html#terms">Terms</a>
+    <a href="https://dashboard.onyx-futures.com/legal.html#privacy">Privacy</a>
+    <a href="https://dashboard.onyx-futures.com/legal.html#risk">Risk Disclosures</a>
+  </p>
+  <p style="margin-top:6px">All trading activity occurs in a simulated environment. CFTC Rule 4.41 applies.</p>
+</footer>
+
+<script>
+function switchTab(type,btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-noact').style.display=type==='noact'?'block':'none';
+  document.getElementById('tab-withact').style.display=type==='withact'?'block':'none';
+}
+const sections=document.querySelectorAll('.rule-section,.rules-hero');
+const links=document.querySelectorAll('.sidebar a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));
+    }
+  });
+},{threshold:0.3,rootMargin:'-64px 0px 0px 0px'});
+sections.forEach(s=>{if(s.id)obs.observe(s);});
+</script>
+</body>
+</html>
