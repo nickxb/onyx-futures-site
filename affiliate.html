@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="description" content="Join the ONYX Prop Futures affiliate program. Earn $3 per referral. Share your code, track conversions, get paid.">
+<title>Affiliate Program — ONYX Prop Futures</title>
+<meta property="og:title" content="Affiliate Program — ONYX Prop Futures">
+<meta property="og:description" content="Earn $3 per referral. Your audience gets 20% off. Apply now.">
+<link rel="canonical" href="https://onyx-futures.com/affiliate.html">
+<link rel="icon" href="img/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0b0b0b;--bg2:#0f0f0f;--bg3:#131313;--line:#1e1e1e;--line2:#2a2a2a;
+  --red:#ff3a3a;--red2:#ff6b6b;--red3:#ff9b9b;--muted:#888;--text:#eaeef2;--text2:#ccc;
+  --green:#34d399;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(11,11,11,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:18px;color:#ffe9e9}
+.nav-logo svg{width:36px;height:36px}
+.nav-logo .ring{fill:none;stroke:url(#g-nav);stroke-width:3.2;stroke-dasharray:220;animation:spin 7s linear infinite;vector-effect:non-scaling-stroke}
+@keyframes spin{to{stroke-dashoffset:-220}}
+.nav-links{display:flex;align-items:center;gap:8px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:10px;transition:.15s}
+.nav-links a:hover{color:var(--text);background:rgba(255,58,58,.08)}
+.nav-cta{background:linear-gradient(135deg,var(--red),var(--red2));color:#000!important;border-radius:10px;font-weight:900!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px}
+@media(max-width:640px){
+  nav{padding:0 16px}.hamburger{display:flex}
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(11,11,11,.98);backdrop-filter:blur(16px);flex-direction:column;padding:16px;gap:4px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}.nav-links li{display:block!important}.nav-links a{display:block;padding:12px 16px;border-radius:10px}
+}
+
+.hero{padding:120px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,58,58,.1) 0%,transparent 65%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid rgba(255,58,58,.3);border-radius:999px;background:rgba(255,58,58,.06);font-size:13px;font-weight:800;color:var(--red3);margin-bottom:24px}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,9vw,120px);line-height:.92;letter-spacing:.02em;color:#fff;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(135deg,var(--red),var(--red2),#ffb3b3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(16px,2.2vw,20px);color:var(--text2);max-width:560px;margin:0 auto 40px;font-weight:600}
+
+.stats-bar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);padding:28px 40px;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+.stat{flex:1;min-width:160px;text-align:center;padding:0 32px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;color:var(--red2);letter-spacing:.02em}
+.stat-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+@media(max-width:640px){.stats-bar{padding:20px;gap:16px}.stat{border-right:none;border-bottom:1px solid var(--line);padding:12px 0;min-width:140px}.stat:last-child{border-bottom:none}}
+
+.section{padding:80px 24px}
+.container{max-width:1100px;margin:0 auto}
+.section-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin-bottom:12px}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);line-height:.95;letter-spacing:.02em;color:#fff;margin-bottom:16px}
+.section-sub{font-size:16px;color:var(--text2);max-width:520px;font-weight:500}
+
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:48px}
+.how-card{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:28px;position:relative}
+.how-num{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:rgba(255,58,58,.12);position:absolute;top:16px;right:20px;letter-spacing:.02em}
+.how-card h3{font-size:17px;font-weight:900;color:#fff;margin-bottom:8px}
+.how-card p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* Form */
+.form-wrap{max-width:640px;margin:0 auto}
+.form-card{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:40px}
+@media(max-width:640px){.form-card{padding:24px}}
+.form-section-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:16px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.form-section-title:first-child{margin-top:0;padding-top:0;border-top:none}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:700;color:var(--text2);margin-bottom:6px}
+.field label .req{color:var(--red);margin-left:2px}
+.field input,.field textarea,.field select{
+  width:100%;padding:11px 14px;background:#0b0b0b;border:1px solid var(--line2);border-radius:10px;
+  color:var(--text);font-size:14px;font-family:inherit;outline:none;transition:.15s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(255,58,58,.4);background:#0e0e0e}
+.field textarea{resize:vertical;min-height:90px;line-height:1.5}
+.field-hint{font-size:12px;color:var(--muted);margin-top:4px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.field-row{grid-template-columns:1fr}}
+
+.btn-submit{
+  width:100%;padding:14px;background:linear-gradient(135deg,var(--red),var(--red2));
+  color:#000;font-weight:900;font-size:15px;border-radius:12px;border:none;cursor:pointer;
+  transition:.18s;margin-top:24px;font-family:inherit;
+}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(255,58,58,.3)}
+.btn-submit:disabled{opacity:.6;transform:none;cursor:not-allowed}
+
+.form-msg{display:none;padding:14px 16px;border-radius:10px;font-size:14px;font-weight:600;margin-top:16px;text-align:center}
+.form-msg.success{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.2);color:#34d399;display:block}
+.form-msg.error{background:rgba(255,58,58,.08);border:1px solid rgba(255,58,58,.2);color:#ffcaca;display:block}
+
+footer{border-top:1px solid var(--line);padding:32px 40px;text-align:center;font-size:12px;color:var(--muted);background:var(--bg2)}
+footer a{color:var(--muted);text-decoration:none;margin:0 10px}
+footer a:hover{color:var(--red3)}
+</style>
+</head>
+<body>
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-nav" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9b9b"/><stop offset="1" stop-color="#ff3a3a"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path class="ring" d="M32 3 C22 19 8 29 8 43 a24 24 0 0 0 48 0 C56 29 42 19 32 3 Z"/></svg>
+    ONYX
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/">Home</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/rules.html">Rules</a></li>
+    <li><a href="https://dashboard.onyx-futures.com/login.html" class="nav-cta">Get Started →</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-badge"><span></span> Affiliate Program — Now Open</div>
+  <h1>Earn With<br><span>ONYX.</span></h1>
+  <p class="hero-sub">Share your code. Your audience gets 20% off their evaluation. You earn $3 for every signup.</p>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-val">20%</div><div class="stat-label">Discount for your audience</div></div>
+  <div class="stat"><div class="stat-val">$3</div><div class="stat-label">Per conversion earned</div></div>
+  <div class="stat"><div class="stat-val">∞</div><div class="stat-label">No cap on referrals</div></div>
+  <div class="stat"><div class="stat-val">ACH</div><div class="stat-label">Direct bank payout</div></div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="container">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Simple as it gets.</h2>
+    <p class="section-sub">Apply, get approved, share your code. That's it.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <span class="how-num">01</span>
+        <h3>Apply Below</h3>
+        <p>Fill out the form with your social handles and how you plan to promote ONYX. We review every application manually.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-num">02</span>
+        <h3>Get Your Code</h3>
+        <p>Once approved, we email you a unique affiliate code. Your audience uses it at checkout for 20% off any evaluation.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-num">03</span>
+        <h3>Track & Earn</h3>
+        <p>Log into your affiliate portal to see clicks, conversions, and earnings in real time. Get paid via ACH once you request a withdrawal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLICATION FORM -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding-top:60px;padding-bottom:80px">
+  <div class="container">
+    <p class="section-label" style="text-align:center">Apply Now</p>
+    <h2 class="section-title" style="text-align:center;margin-bottom:8px">Join the Program.</h2>
+    <p class="section-sub" style="text-align:center;margin:0 auto 40px">Applications are reviewed within 2–3 business days.</p>
+
+    <div class="form-wrap">
+      <div class="form-card">
+
+        <p class="form-section-title">Personal Info</p>
+        <div class="field-row">
+          <div class="field">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" id="firstName" placeholder="John" required>
+          </div>
+          <div class="field">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" id="lastName" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="field">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+          <p class="field-hint">We'll send your affiliate code to this address when approved.</p>
+        </div>
+
+        <p class="form-section-title">Social Media</p>
+        <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Fill in at least one. Include your handle/username — we use this to verify your reach.</p>
+        <div class="field-row">
+          <div class="field">
+            <label>Instagram</label>
+            <input type="text" id="instagram" placeholder="@yourhandle">
+          </div>
+          <div class="field">
+            <label>Twitter / X</label>
+            <input type="text" id="twitter" placeholder="@yourhandle">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label>YouTube</label>
+            <input type="text" id="youtube" placeholder="channel name or URL">
+          </div>
+          <div class="field">
+            <label>TikTok</label>
+            <input type="text" id="tiktok" placeholder="@yourhandle">
+          </div>
+        </div>
+        <div class="field">
+          <label>Other (Discord, Telegram, Blog, etc.)</label>
+          <input type="text" id="other" placeholder="Link or handle">
+        </div>
+
+        <p class="form-section-title">Promotion Plan</p>
+        <div class="field">
+          <label>How do you plan to promote ONYX? <span class="req">*</span></label>
+          <textarea id="promoplan" placeholder="Tell us about your audience, content style, and how you'll share your code. The more detail the better." required></textarea>
+          <p class="field-hint">Min 50 characters. Be specific — vague answers get rejected.</p>
+        </div>
+
+        <button class="btn-submit" id="btnApply">Submit Application →</button>
+        <div class="form-msg" id="formMsg"></div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ONYX Prop Futures • All rights reserved •
+    <a href="https://dashboard.onyx-futures.com/legal.html#terms">Terms</a>
+    <a href="https://dashboard.onyx-futures.com/legal.html#privacy">Privacy</a>
+  </p>
+  <p style="margin-top:6px">All trading activity occurs in a simulated environment. CFTC Rule 4.41 applies.</p>
+</footer>
+
+<script>
+// Mobile menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger?.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open);
+});
+
+// Supabase
+const SUPABASE_URL  = 'https://oxfirycadggemyfyqpdy.supabase.co';
+const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im94ZmlyeWNhZGdnZW15ZnlxcGR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg3MjY5MDQsImV4cCI6MjA3NDMwMjkwNH0.Qc27eUS_UhEwB-qM0UpSnSUX2dKcuapf37T38ZvEcds';
+
+document.getElementById('btnApply').addEventListener('click', async () => {
+  const btn  = document.getElementById('btnApply');
+  const msg  = document.getElementById('formMsg');
+  msg.className = 'form-msg';
+  msg.textContent = '';
+
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName  = document.getElementById('lastName').value.trim();
+  const email     = document.getElementById('email').value.trim();
+  const instagram = document.getElementById('instagram').value.trim();
+  const twitter   = document.getElementById('twitter').value.trim();
+  const youtube   = document.getElementById('youtube').value.trim();
+  const tiktok    = document.getElementById('tiktok').value.trim();
+  const other     = document.getElementById('other').value.trim();
+  const promo     = document.getElementById('promoplan').value.trim();
+
+  // Validate
+  if (!firstName || !lastName) { showMsg('error', 'Please enter your full name.'); return; }
+  if (!email || !email.includes('@')) { showMsg('error', 'Please enter a valid email address.'); return; }
+  if (!instagram && !twitter && !youtube && !tiktok && !other) {
+    showMsg('error', 'Please provide at least one social media handle.'); return;
+  }
+  if (promo.length < 50) { showMsg('error', 'Please describe your promotion plan in more detail (min 50 characters).'); return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  try {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/affiliate_codes`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON,
+        'Authorization': `Bearer ${SUPABASE_ANON}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({
+        code: 'PENDING_' + Math.random().toString(36).slice(2,8).toUpperCase(),
+        name: `${firstName} ${lastName}`,
+        email,
+        social_instagram: instagram || null,
+        social_twitter:   twitter   || null,
+        social_youtube:   youtube   || null,
+        social_tiktok:    tiktok    || null,
+        social_other:     other     || null,
+        how_to_promote:   promo,
+        discount_pct:     20,
+        is_active:        false,
+        status:           'pending',
+        max_uses:         null,
+        use_count:        0,
+      })
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.message || 'Submission failed');
+    }
+
+    showMsg('success', '✓ Application submitted! We\'ll review it and email you within 2–3 business days.');
+    btn.textContent = 'Application Sent ✓';
+    ['firstName','lastName','email','instagram','twitter','youtube','tiktok','other','promoplan']
+      .forEach(id => document.getElementById(id).value = '');
+
+  } catch(e) {
+    console.error('[affiliate apply]', e);
+    showMsg('error', 'Something went wrong. Please try again or email support@onyx-futures.com.');
+    btn.disabled = false;
+    btn.textContent = 'Submit Application →';
+  }
+});
+
+function showMsg(type, text) {
+  const el = document.getElementById('formMsg');
+  el.className = 'form-msg ' + type;
+  el.textContent = text;
+}
+</script>
+
+<!-- Intercom -->
+<script>
+(function(){
+  var w=window,ic=w.Intercom;
+  if(typeof ic==="function"){ic("reattach_activator");ic("update",w.intercomSettings);}
+  else{var d=document,i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;
+  var l=function(){var s=d.createElement("script");s.type="text/javascript";s.async=true;
+  s.src="https://widget.intercom.io/widget/cv73z6f3";
+  var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x);};
+  if(document.readyState==="complete"){l();}else if(w.attachEvent){w.attachEvent("onload",l);}
+  else{w.addEventListener("load",l,false);}}
+})();
+window.Intercom("boot",{api_base:"https://api-iam.intercom.io",app_id:"cv73z6f3"});
+</script>
+</body>
+</html>
