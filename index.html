@@ -1034,7 +1034,7 @@ footer {
     </div>
     <div class="footer-col">
       <h4>Legal</h4>
-      <a href="https://dashboard.onyx-futures.com/legal.html#terms">Terms & Conditions</a>
+      <a href="https://dashboard.onyx-futures.com/legal.html#terms">Terms &amp; Conditions</a>
       <a href="https://dashboard.onyx-futures.com/legal.html#privacy">Privacy Policy</a>
       <a href="https://dashboard.onyx-futures.com/legal.html#disclaimers">Disclaimers</a>
       <a href="https://dashboard.onyx-futures.com/legal.html#risk">Risk Disclosures</a>
@@ -1063,7 +1063,6 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-// Intersection observer for fade-in
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; } });
 }, { threshold: 0.1 });
@@ -1075,6 +1074,29 @@ document.querySelectorAll('.diff-card, .step-card, .price-card').forEach(el => {
   observer.observe(el);
 });
 </script>
-<script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="e300e431-6c19-4205-9cfa-addeac43734f";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+<!-- Intercom -->
+<script>
+(function(){
+  var w=window,ic=w.Intercom;
+  if(typeof ic==="function"){ic("reattach_activator");ic("update",w.intercomSettings);}
+  else{
+    var d=document,i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};
+    w.Intercom=i;
+    var l=function(){
+      var s=d.createElement("script");s.type="text/javascript";s.async=true;
+      s.src="https://widget.intercom.io/widget/cv73z6f3";
+      var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x);
+    };
+    if(document.readyState==="complete"){l();}
+    else if(w.attachEvent){w.attachEvent("onload",l);}
+    else{w.addEventListener("load",l,false);}
+  }
+})();
+window.Intercom("boot",{
+  api_base: "https://api-iam.intercom.io",
+  app_id:   "cv73z6f3"
+});
+</script>
 </body>
 </html>
