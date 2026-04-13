@@ -6,6 +6,14 @@
 <meta name="theme-color" content="#0b0b0b">
 <meta name="description" content="ONYX Prop Futures — No consistency rule. EOD drawdown. Up to 10 funded accounts. Weekly payouts. Start your evaluation from $99/mo.">
 <title>ONYX Prop Futures — Get Funded. Trade Free.</title>
+<meta property="og:title" content="ONYX Prop Futures — Get Funded. Trade Free.">
+<meta property="og:description" content="No consistency rule. EOD drawdown only. Up to 10 funded accounts. Weekly payouts. Start from $59/mo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://onyx-futures.com">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ONYX Prop Futures — Get Funded. Trade Free.">
+<meta name="twitter:description" content="No consistency rule. EOD drawdown only. Up to 10 funded accounts. Weekly payouts. Start from $59/mo.">
+<link rel="canonical" href="https://onyx-futures.com">
 <link rel="icon" href="img/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -608,6 +616,10 @@ footer {
 /* ===== PRICING TOGGLE ===== */
 .pricing-noact, .pricing-withact { display: none; }
 .pricing-noact.show, .pricing-withact.show { display: grid; }
+/* Mobile menu */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.2s}
+@media(max-width:640px){.hamburger{display:flex}.nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(11,11,11,.98);backdrop-filter:blur(16px);flex-direction:column;padding:16px;gap:4px;border-bottom:1px solid var(--line);display:none}.nav-links.open{display:flex}.nav-links li{display:block!important}.nav-links a{display:block;padding:12px 16px;border-radius:10px}}
 </style>
 </head>
 <body>
@@ -630,13 +642,15 @@ footer {
     </svg>
     ONYX
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#compare">Compare</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://dashboard.onyx-futures.com/home.html">Dashboard</a></li>
     <li><a href="https://dashboard.onyx-futures.com/login.html" class="nav-cta">Get Started →</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -1007,7 +1021,7 @@ footer {
       <p>No consistency rule. EOD drawdown. Weekly payouts. Start from $59/mo.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a href="https://dashboard.onyx-futures.com/login.html" class="btn-primary">Start Your Evaluation →</a>
-        <a href="/rules.html" class="btn-outline">Read the Rules</a>
+        <a href="rules.html" class="btn-outline">Read the Rules</a>
       </div>
     </div>
   </div>
@@ -1031,6 +1045,12 @@ footer {
       <a href="https://dashboard.onyx-futures.com/evaluations.html">Evaluations</a>
       <a href="https://dashboard.onyx-futures.com/home.html">Dashboard</a>
       <a href="https://dashboard.onyx-futures.com/payouts.html">Payouts</a>
+    </div>
+    <div class="footer-col">
+      <h4>Community</h4>
+      <a href="#" id="footer-discord">Discord</a>
+      <a href="#" id="footer-twitter">Twitter / X</a>
+      <a href="#" id="footer-instagram">Instagram</a>
     </div>
     <div class="footer-col">
       <h4>Legal</h4>
@@ -1073,6 +1093,11 @@ document.querySelectorAll('.diff-card, .step-card, .price-card').forEach(el => {
   el.style.transition = 'opacity .5s ease, transform .5s ease';
   observer.observe(el);
 });
+// Mobile menu
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+hamburger?.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');hamburger.setAttribute('aria-expanded',open);});
+document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>{navLinks.classList.remove('open');hamburger?.setAttribute('aria-expanded','false');});});
 </script>
 
 <!-- Intercom -->
