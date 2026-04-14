@@ -689,7 +689,6 @@ footer {
     <h2 class="section-title">Built for Real Traders.</h2>
     <p class="section-sub">We removed the rules that trip up good traders and kept the ones that actually matter.</p>
     <div class="diff-grid">
-
       <div class="diff-card">
         <div class="diff-icon">🛡️</div>
         <h3>EOD Drawdown Only</h3>
@@ -899,7 +898,6 @@ footer {
           </tr>
         </thead>
         <tbody>
-
           <tr>
             <td>Daily loss limit during eval</td>
             <td class="onyx-col check">None ✓</td>
@@ -1084,35 +1082,22 @@ document.querySelectorAll('.diff-card, .step-card, .price-card').forEach(el => {
   el.style.transition = 'opacity .5s ease, transform .5s ease';
   observer.observe(el);
 });
+
 // Mobile menu
-const hamburger=document.getElementById('hamburger');
-const navLinks=document.getElementById('navLinks');
-hamburger?.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');hamburger.setAttribute('aria-expanded',open);});
-document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>{navLinks.classList.remove('open');hamburger?.setAttribute('aria-expanded','false');});});
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+hamburger?.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); hamburger.setAttribute('aria-expanded', open); });
+document.querySelectorAll('.nav-links a').forEach(a => { a.addEventListener('click', () => { navLinks.classList.remove('open'); hamburger?.setAttribute('aria-expanded', 'false'); }); });
 </script>
 
 <!-- Intercom -->
 <script>
-(function(){
-  var w=window,ic=w.Intercom;
-  if(typeof ic==="function"){ic("reattach_activator");ic("update",w.intercomSettings);}
-  else{
-    var d=document,i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};
-    w.Intercom=i;
-    var l=function(){
-      var s=d.createElement("script");s.type="text/javascript";s.async=true;
-      s.src="https://widget.intercom.io/widget/cv73z6f3";
-      var x=d.getElementsByTagName("script")[0];x.parentNode.insertBefore(s,x);
-    };
-    if(document.readyState==="complete"){l();}
-    else if(w.attachEvent){w.attachEvent("onload",l);}
-    else{w.addEventListener("load",l,false);}
-  }
-})();
-window.Intercom("boot",{
-  api_base: "https://api-iam.intercom.io",
-  app_id:   "cv73z6f3"
-});
+  window.intercomSettings = {
+    api_base: "https://api-iam.intercom.io",
+    app_id: "cv73z6f3"
+  };
+  (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/cv73z6f3';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
 </script>
+
 </body>
 </html>
