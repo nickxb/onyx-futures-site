@@ -180,10 +180,10 @@ footer a:hover{color:var(--red3)}
     <div class="rule-section">
       <h2>Quick Summary</h2>
       <p class="section-desc">The most important things to know across both phases at a glance.</p>
-      <div class="hl green"><p><strong>What makes ONYX different:</strong> No daily loss limit during evaluation. EOD drawdown only — calculated at close, never intraday. 40% consistency rule (more flexible than the industry-standard 50%). No time limit on evaluations.</p></div>
+      <div class="hl green"><p><strong>What makes ONYX different:</strong> No daily loss limit during evaluation. EOD drawdown only — calculated at close, never intraday. No time limit on evaluations. Up to 10 accounts.</p></div>
       <div class="rule-list">
         <div class="rule-row"><div class="rl"><div class="rn">Drawdown Type</div><div class="rd">How your max loss is calculated</div></div><div class="rr"><div class="rv g">EOD Trailing Only</div><div class="rs">Calculated at market close. Intraday dips that recover by close do not fail the account.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule (Eval)</div><div class="rd">Profit distribution requirement</div></div><div class="rr"><div class="rv r">40% Max Single Day</div><div class="rs">No single day may exceed 40% of total profits. Applies during evaluation and on funded accounts.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div><div class="rd">Profit distribution requirement at payout</div></div><div class="rr"><div class="rv r">40% Max Single Day</div><div class="rs">No single day may exceed 40% of total profits at time of payout request. Applies on funded accounts.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit (Eval)</div><div class="rd">Max you can lose in one day</div></div><div class="rr"><div class="rv g">None</div><div class="rs">No DLL during evaluation. Your only limit is EOD trailing drawdown.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Minimum Trading Days</div><div class="rd">Days required before eval can be passed</div></div><div class="rr"><div class="rv">3 Days</div><div class="rs">Must trade at least 3 days. No maximum time limit.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Min Hold Time</div><div class="rd">Shortest a trade can be open</div></div><div class="rr"><div class="rv y">2 Minutes</div><div class="rs">All trades must be held at least 2 minutes. No tick scalping.</div></div></div>
@@ -235,12 +235,11 @@ footer a:hover{color:var(--red3)}
     <div class="rule-section" id="eval-rules">
       <h2>Evaluation Rules <span class="phase-badge eval">Phase 1 — Sapphire</span></h2>
       <p class="section-desc">Rules that apply during your Sapphire evaluation account. Pass these to qualify for a Diamond funded account.</p>
-      <div class="hl green"><p><strong>The short version:</strong> Hit your profit target over a minimum of 3 trading days without breaching EOD trailing drawdown. 40% consistency rule applies. No daily loss limit. No time pressure. Just trade.</p></div>
+      <div class="hl green"><p><strong>The short version:</strong> Hit your profit target over a minimum of 3 trading days without breaching EOD trailing drawdown. No daily loss limit. No time pressure. Just trade.</p></div>
       <div class="rule-list">
         <div class="rule-row"><div class="rl"><div class="rn">Profit Target</div><div class="rd">Net profit required to pass</div></div><div class="rr"><div class="rv">See size table above</div><div class="rs">$1,500 to $9,000 depending on account size. Net of commissions and fees.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Minimum Trading Days</div><div class="rd">Days with at least one trade</div></div><div class="rr"><div class="rv">3 Days</div><div class="rs">Must complete at least 3 trading days before the evaluation can be passed. No maximum time limit.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">EOD Trailing Drawdown</div><div class="rd">Your max loss threshold</div></div><div class="rr"><div class="rv r">Never breach at close</div><div class="rs">Trailing drawdown updates once per day at market close. Intraday dips that recover before close do NOT fail the account.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div><div class="rd">Profit distribution requirement</div></div><div class="rr"><div class="rv r">40% Max Single Day</div><div class="rs">No single day may exceed 40% of total net profits. Applies at time of payout — not intraday during the session.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit</div><div class="rd">Max intraday loss allowed</div></div><div class="rr"><div class="rv g">None</div><div class="rs">No daily loss limit during evaluation. Your only hard limit is the EOD trailing drawdown at close.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Min Hold Time</div><div class="rd">Minimum trade duration</div></div><div class="rr"><div class="rv y">2 Minutes</div><div class="rs">All trades must be held open for at least 2 minutes. Tick scalping and rapid-fire entries under 2 minutes are prohibited.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">News Trading</div><div class="rd">Economic release rule</div></div><div class="rr"><div class="rv y">Exit 2 min before</div><div class="rs">Close all open positions at least 2 minutes before FOMC, NFP, CPI, PPI, FOMC minutes, and other tier-1 releases.</div></div></div>
@@ -258,7 +257,7 @@ footer a:hover{color:var(--red3)}
     <div class="rule-section" id="funded-rules">
       <h2>Diamond Account Rules <span class="phase-badge funded">Phase 2 — Funded</span></h2>
       <p class="section-desc">Rules that apply once you're funded. A few additional guardrails activate to protect the account long-term.</p>
-      <div class="hl red"><p><strong>Key changes from evaluation:</strong> The consistency rule and daily loss limit now apply. These are standard industry protections ensuring one bad day can't destroy a funded account. EOD drawdown remains — no intraday trailing on funded accounts.</p></div>
+      <div class="hl red"><p><strong>Key changes from evaluation:</strong> A daily loss limit and consistency rule activate on funded accounts. EOD drawdown remains — no intraday trailing on funded accounts.</p></div>
       <div class="rule-list">
         <div class="rule-row"><div class="rl"><div class="rn">Profit Split</div><div class="rd">Your share of profits</div></div><div class="rr"><div class="rv g">80% to Trader</div><div class="rs">You keep 80% of all net profits. ONYX takes 20%.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">EOD Drawdown</div><div class="rd">Max loss threshold</div></div><div class="rr"><div class="rv r">Same as evaluation</div><div class="rs">EOD trailing drawdown continues on funded accounts. Still calculated at close only — not intraday.</div></div></div>
@@ -280,10 +279,10 @@ footer a:hover{color:var(--red3)}
       <p class="section-desc">Everything you need to know about requesting and receiving profits from your Diamond account.</p>
       <div class="rule-list">
         <div class="rule-row"><div class="rl"><div class="rn">Payout Frequency</div><div class="rd">How often you can request</div></div><div class="rr"><div class="rv b">Once per week</div><div class="rs">Submit one payout request per week. Processing takes 3–5 business days.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Minimum Payout</div><div class="rd">Smallest amount you can withdraw</div></div><div class="rr"><div class="rv">$200</div><div class="rs">Minimum payout request is $200. Requests below this amount will not be processed.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Maximum Per Request</div><div class="rd">Most you can withdraw at once</div></div><div class="rr"><div class="rv">$15,000</div><div class="rs">Maximum per request is $15,000 regardless of account size or total profits.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Buffer Requirement</div><div class="rd">Balance needed before first payout</div></div><div class="rr"><div class="rv r">Full drawdown above starting balance</div><div class="rs">Account must be at least the full drawdown amount above starting balance before first payout (25K=$1,500 · 50K=$2,000 · 100K=$3,000 · 150K=$5,000).</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Min Winning Days</div><div class="rd">Before first payout request</div></div><div class="rr"><div class="rv">5 Winning Days</div><div class="rs">Your funded account must have at least 5 profitable trading days before submitting your first payout request.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Minimum Payout</div><div class="rd">Smallest amount you can withdraw</div></div><div class="rr"><div class="rv">$300</div><div class="rs">Minimum payout request is $300. Requests below this amount will not be processed.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Maximum Per Request</div><div class="rd">Max withdrawal by account size</div></div><div class="rr"><div class="rv">Per Account Size</div><div class="rs">25K → $1,500 &nbsp;·&nbsp; 50K → $2,000 &nbsp;·&nbsp; 100K → $3,500 &nbsp;·&nbsp; 150K → $4,500. No lifetime cap — request weekly once eligible.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Buffer Requirement</div><div class="rd">Balance needed before first payout</div></div><div class="rr"><div class="rv r">Full drawdown above starting balance</div><div class="rs">Account must be at least the full drawdown amount above starting balance before first payout (25K=$1,500 · 50K=$2,000 · 100K=$3,500 · 150K=$4,500).</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Min Winning Days</div><div class="rd">Before first payout request</div></div><div class="rr"><div class="rv">5 Winning Days</div><div class="rs">Your funded account must have at least 5 profitable trading days (≥$200 each) before submitting your first payout request.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Consistency Check at Payout</div><div class="rd">Applied when you request</div></div><div class="rr"><div class="rv r">40% max single day</div><div class="rs">At time of request, no single day may exceed 40% of total net profits since your last payout.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Rule Compliance Required</div><div class="rd">Account status at payout</div></div><div class="rr"><div class="rv r">Full compliance</div><div class="rs">Account must be in full compliance with all trading rules. Open violations will delay or block payout processing.</div></div></div>
       </div>
@@ -336,8 +335,8 @@ footer a:hover{color:var(--red3)}
       <div class="rule-list">
         <div class="rule-row"><div class="rl"><div class="rn">EOD Trailing Drawdown</div></div><div class="rr"><div class="rs">End-of-Day trailing drawdown. Your max loss threshold updates once per day at market close, based on your highest closing balance. Intraday dips below the threshold that recover before close do not fail the account.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit (DLL)</div></div><div class="rr"><div class="rs">Max you can lose in a single session. On ONYX funded accounts this is 50% of your EOD drawdown. Hitting DLL pauses trading for the day — it does not fail the account.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div></div><div class="rr"><div class="rs">A payout rule on funded accounts. No single trading day may represent more than 40% of total profits at time of payout request. Applies only on funded accounts — NOT during evaluation.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Buffer Requirement</div></div><div class="rr"><div class="rs">Minimum profit threshold before your first payout. Account must be at least the full drawdown amount above starting balance (25K=$1,500 · 50K=$2,000 · 100K=$3,000 · 150K=$5,000).</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div></div><div class="rr"><div class="rs">A payout rule on funded accounts. No single trading day may represent more than 40% of total profits at time of payout request.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Buffer Requirement</div></div><div class="rr"><div class="rs">Minimum profit threshold before your first payout. Account must be at least the full drawdown amount above starting balance (25K=$1,500 · 50K=$2,000 · 100K=$3,500 · 150K=$4,500).</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Sapphire Account</div></div><div class="rr"><div class="rs">ONYX's evaluation account. Trade in a simulated environment and hit your profit target while following the rules to qualify for a Diamond funded account.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Diamond Account</div></div><div class="rr"><div class="rs">ONYX's funded account. Awarded after passing the Sapphire evaluation. Trade with firm capital and withdraw 80% of profits weekly.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Micro Contracts</div></div><div class="rr"><div class="rs">Micro futures (MES, MNQ, etc.) are 1/10th the size of a standard contract. Your contract limit counts 10 micros as 1 standard contract.</div></div></div>
@@ -347,7 +346,7 @@ footer a:hover{color:var(--red3)}
 
     <div class="rules-cta">
       <h2>Ready to Start?</h2>
-      <p>40% consistency rule. EOD drawdown. 3 min days. Weekly payouts.</p>
+      <p>EOD drawdown only. No daily loss limit. Weekly payouts. Starting from $59/mo.</p>
       <a href="https://dashboard.onyx-futures.com/login.html" class="btn-p">Start Your Evaluation →</a>
       <a href="https://dashboard.onyx-futures.com/legal.html" class="btn-g">Full Legal Terms</a>
     </div>
@@ -381,8 +380,6 @@ const obs=new IntersectionObserver(entries=>{
   });
 },{threshold:0.3,rootMargin:'-64px 0px 0px 0px'});
 sections.forEach(s=>{if(s.id)obs.observe(s);});
-
-// Mobile menu
 const hamburger=document.getElementById('hamburger');
 const navLinks=document.getElementById('navLinks');
 hamburger?.addEventListener('click',()=>{
@@ -394,7 +391,6 @@ document.querySelectorAll('.nav-links a').forEach(a=>{
 });
 </script>
 
-<!-- Intercom -->
 <script>
 (function(){
   var w=window,ic=w.Intercom;
