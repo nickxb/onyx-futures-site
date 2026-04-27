@@ -105,6 +105,7 @@ table.st tbody tr:hover td{background:rgba(255,255,255,.02)}
 .prohibit-list{list-style:none;display:flex;flex-direction:column;gap:6px}
 .prohibit-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);padding:12px 16px;background:var(--bg2);border:1px solid var(--line);border-radius:11px;line-height:1.5}
 .prohibit-list li .x{color:var(--red);font-weight:900;flex-shrink:0;margin-top:1px;font-size:14px}
+.prohibit-list li .ok{color:var(--green);font-weight:900;flex-shrink:0;margin-top:1px;font-size:14px}
 .prohibit-list li strong{color:#fff}
 
 .inst-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
@@ -209,9 +210,9 @@ footer a:hover{color:var(--red3)}
           <thead><tr><th>Size</th><th>Monthly</th><th>Profit Target</th><th>EOD Drawdown</th><th>Max Contracts</th><th>Min Days</th><th>Reset</th></tr></thead>
           <tbody>
             <tr><td>25K</td><td><span class="pill pr">$99/mo</span></td><td>$1,500</td><td>$1,500</td><td>3 (Micros ×10)</td><td>3</td><td>$79</td></tr>
-            <tr><td>50K</td><td><span class="pill pr">$149/mo</span></td><td>$3,000</td><td>$2,000</td><td>6 (Micros ×10)</td><td>3</td><td>$119</td></tr>
-            <tr><td>100K</td><td><span class="pill pr">$199/mo</span></td><td>$6,000</td><td>$3,000</td><td>12 (Micros ×10)</td><td>3</td><td>$159</td></tr>
-            <tr><td>150K</td><td><span class="pill pr">$269/mo</span></td><td>$9,000</td><td>$5,000</td><td>15 (Micros ×10)</td><td>3</td><td>$199</td></tr>
+            <tr><td>50K</td><td><span class="pill pr">$149/mo</span></td><td>$3,000</td><td>$2,000</td><td>6 (Micros ×10)</td><td>3</td><td>$79</td></tr>
+            <tr><td>100K</td><td><span class="pill pr">$199/mo</span></td><td>$6,000</td><td>$3,000</td><td>12 (Micros ×10)</td><td>3</td><td>$79</td></tr>
+            <tr><td>150K</td><td><span class="pill pr">$269/mo</span></td><td>$9,000</td><td>$5,000</td><td>15 (Micros ×10)</td><td>3</td><td>$79</td></tr>
           </tbody>
         </table>
       </div>
@@ -219,10 +220,10 @@ footer a:hover{color:var(--red3)}
         <table class="st">
           <thead><tr><th>Size</th><th>Monthly</th><th>Activation</th><th>Profit Target</th><th>EOD Drawdown</th><th>Max Contracts</th><th>Reset</th></tr></thead>
           <tbody>
-            <tr><td>25K</td><td><span class="pill pr">$59/mo</span></td><td>$85</td><td>$1,500</td><td>$1,500</td><td>3 (Micros ×10)</td><td>$49</td></tr>
-            <tr><td>50K</td><td><span class="pill pr">$89/mo</span></td><td>$85</td><td>$3,000</td><td>$2,000</td><td>6 (Micros ×10)</td><td>$69</td></tr>
-            <tr><td>100K</td><td><span class="pill pr">$119/mo</span></td><td>$85</td><td>$6,000</td><td>$3,000</td><td>12 (Micros ×10)</td><td>$99</td></tr>
-            <tr><td>150K</td><td><span class="pill pr">$159/mo</span></td><td>$85</td><td>$9,000</td><td>$5,000</td><td>15 (Micros ×10)</td><td>$129</td></tr>
+            <tr><td>25K</td><td><span class="pill pr">$59/mo</span></td><td>$85</td><td>$1,500</td><td>$1,500</td><td>3 (Micros ×10)</td><td>$79</td></tr>
+            <tr><td>50K</td><td><span class="pill pr">$89/mo</span></td><td>$85</td><td>$3,000</td><td>$2,000</td><td>6 (Micros ×10)</td><td>$79</td></tr>
+            <tr><td>100K</td><td><span class="pill pr">$119/mo</span></td><td>$85</td><td>$6,000</td><td>$3,000</td><td>12 (Micros ×10)</td><td>$79</td></tr>
+            <tr><td>150K</td><td><span class="pill pr">$159/mo</span></td><td>$85</td><td>$9,000</td><td>$5,000</td><td>15 (Micros ×10)</td><td>$79</td></tr>
           </tbody>
         </table>
       </div>
@@ -244,10 +245,10 @@ footer a:hover{color:var(--red3)}
         <div class="rule-row"><div class="rl"><div class="rn">Min Hold Time</div><div class="rd">Minimum trade duration</div></div><div class="rr"><div class="rv y">2 Minutes</div><div class="rs">All trades must be held open for at least 2 minutes. Tick scalping and rapid-fire entries under 2 minutes are prohibited.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">News Trading</div><div class="rd">Economic release rule</div></div><div class="rr"><div class="rv y">Exit 2 min before</div><div class="rs">Close all open positions at least 2 minutes before FOMC, NFP, CPI, PPI, FOMC minutes, and other tier-1 releases.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Contract Limits</div><div class="rd">Max contracts at any time</div></div><div class="rr"><div class="rv r">Never exceed limit</div><div class="rs">Do not exceed your account's max contract limit at any time. 1 standard contract = 10 micro contracts toward your limit.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Overnight / Weekend Holds</div><div class="rd">Holding after market close</div></div><div class="rr"><div class="rv g">Allowed</div><div class="rs">Positions may be held overnight and over the weekend. EOD drawdown is calculated at each market close.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Overnight / Weekend Holds</div><div class="rd">Holding after market close</div></div><div class="rr"><div class="rv g">Allowed</div><div class="rs">Positions may be held overnight and over the weekend during evaluation. EOD drawdown is calculated at each market close.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Automated / Algo Trading</div><div class="rd">Bots and automated strategies</div></div><div class="rr"><div class="rv g">Allowed</div><div class="rs">Automated strategies are permitted. Your algo must respect all rules including the 2-minute hold time and news exit rule.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Time Limit</div><div class="rd">How long you have to pass</div></div><div class="rr"><div class="rv g">No Limit</div><div class="rs">Your subscription renews monthly and keeps your evaluation active indefinitely. Take as long as you need.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Resets</div><div class="rd">What happens if you breach drawdown</div></div><div class="rr"><div class="rv">Purchase a reset</div><div class="rs">If you fail, purchase a reset at the published price. All subsequent resets are 50% off the standard reset price.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Resets</div><div class="rd">What happens if you breach drawdown</div></div><div class="rr"><div class="rv">Purchase a reset</div><div class="rs">If you fail, purchase a reset at the published price ($79 flat for all account sizes).</div></div></div>
       </div>
     </div>
 
@@ -257,16 +258,16 @@ footer a:hover{color:var(--red3)}
     <div class="rule-section" id="funded-rules">
       <h2>Diamond Account Rules <span class="phase-badge funded">Phase 2 — Funded</span></h2>
       <p class="section-desc">Rules that apply once you're funded. A few additional guardrails activate to protect the account long-term.</p>
-      <div class="hl red"><p><strong>Key changes from evaluation:</strong> A daily loss limit and consistency rule activate on funded accounts. EOD drawdown remains — no intraday trailing on funded accounts.</p></div>
+      <div class="hl red"><p><strong>Key changes from evaluation:</strong> A daily loss limit and consistency rule activate on funded accounts. EOD drawdown remains — no intraday trailing on funded accounts. Overnight and weekend holds are not permitted on funded accounts.</p></div>
       <div class="rule-list">
         <div class="rule-row"><div class="rl"><div class="rn">Profit Split</div><div class="rd">Your share of profits</div></div><div class="rr"><div class="rv g">80% to Trader</div><div class="rs">You keep 80% of all net profits. ONYX takes 20%.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">EOD Drawdown</div><div class="rd">Max loss threshold</div></div><div class="rr"><div class="rv r">Same as evaluation</div><div class="rs">EOD trailing drawdown continues on funded accounts. Still calculated at close only — not intraday.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit</div><div class="rd">Max loss in one day</div></div><div class="rr"><div class="rv r">50% of drawdown limit</div><div class="rs">Example: 50K account ($2,000 drawdown) → $1,000 DLL. Hitting DLL pauses trading for the day. Account is NOT failed.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div><div class="rd">Max single day profit at payout</div></div><div class="rr"><div class="rv r">40% max single day</div><div class="rs">At time of payout, no single day may exceed 40% of total net profit since last withdrawal.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Overnight / Weekend Holds</div><div class="rd">Holding after market close</div></div><div class="rr"><div class="rv r">Not Allowed</div><div class="rs">All positions must be closed before end of the trading session. No overnight or weekend holds on funded accounts.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Min Hold Time</div><div class="rd">Minimum trade duration</div></div><div class="rr"><div class="rv y">2 Minutes</div><div class="rs">Same as evaluation. All trades must be held at least 2 minutes.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">News Trading</div><div class="rd">Economic release rule</div></div><div class="rr"><div class="rv y">Exit 2 min before</div><div class="rs">Same as evaluation. Exit all positions at least 2 minutes before tier-1 economic releases.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Weekly Activity Requirement</div><div class="rd">Minimum trading frequency</div></div><div class="rr"><div class="rv r">1 trade per week</div><div class="rs">Funded accounts must have at least one trade per calendar week (Sun–Fri) to remain active. Inactive accounts suspended after 2 consecutive weeks.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Overnight / Weekend Holds</div><div class="rd">Holding after close</div></div><div class="rr"><div class="rv g">Allowed</div><div class="rs">Positions may be held overnight and over the weekend on funded accounts.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Max Simultaneous Accounts</div><div class="rd">Total funded accounts allowed</div></div><div class="rr"><div class="rv">Up to 10</div><div class="rs">Hold up to 10 funded accounts simultaneously. Each account purchased and passed independently.</div></div></div>
       </div>
     </div>
@@ -318,9 +319,10 @@ footer a:hover{color:var(--red3)}
         <li><span class="x">✗</span><div><strong>Tick scalping</strong> — Entering and exiting trades in under 2 minutes. All positions must be held a minimum of 2 minutes.</div></li>
         <li><span class="x">✗</span><div><strong>Latency arbitrage</strong> — Any strategy exploiting price feed delays, quote stuffing, or system latency.</div></li>
         <li><span class="x">✗</span><div><strong>Account sharing</strong> — Allowing another person to trade your account or sharing your login credentials with anyone.</div></li>
-        <li><span class="x">✗</span><div><strong>Cross-account copying</strong> — Using a trade copier to mirror trades across your own ONYX accounts to manipulate or inflate performance.</div></li>
+        <li><span class="ok">✓</span><div><strong>Copy trading across your own accounts</strong> — Using R|Trader Pro's built-in copy trading feature to mirror trades across your own ONYX accounts is <strong style="color:var(--green)">permitted and supported</strong>. See the setup guide for instructions.</div></li>
         <li><span class="x">✗</span><div><strong>Exploiting system errors</strong> — Taking advantage of platform bugs, pricing errors, or technical issues to generate artificial profits.</div></li>
         <li><span class="x">✗</span><div><strong>All-or-nothing sizing</strong> — Placing your full maximum contract allocation into a single trade with no risk management structure.</div></li>
+        <li><span class="x">✗</span><div><strong>Overnight / weekend holds on funded accounts</strong> — All positions must be closed before the end of the trading session on Diamond accounts. Overnight holds are only permitted during evaluation.</div></li>
         <li><span class="x">✗</span><div><strong>Chargebacks without contacting support</strong> — Initiating a payment dispute with your bank or PayPal without first emailing support@onyx-futures.com. This is a material breach and results in a permanent ban.</div></li>
         <li><span class="x">✗</span><div><strong>Funded account inactivity</strong> — Failing to place at least one trade per calendar week on a Diamond account. Accounts suspended after 2 consecutive inactive weeks.</div></li>
       </ul>
@@ -340,7 +342,7 @@ footer a:hover{color:var(--red3)}
         <div class="rule-row"><div class="rl"><div class="rn">Sapphire Account</div></div><div class="rr"><div class="rs">ONYX's evaluation account. Trade in a simulated environment and hit your profit target while following the rules to qualify for a Diamond funded account.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Diamond Account</div></div><div class="rr"><div class="rs">ONYX's funded account. Awarded after passing the Sapphire evaluation. Trade with firm capital and withdraw 80% of profits weekly.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Micro Contracts</div></div><div class="rr"><div class="rs">Micro futures (MES, MNQ, etc.) are 1/10th the size of a standard contract. Your contract limit counts 10 micros as 1 standard contract.</div></div></div>
-        <div class="rule-row"><div class="rl"><div class="rn">Reset</div></div><div class="rr"><div class="rs">If you breach EOD drawdown during evaluation, your account fails. Purchase a reset to restart with a fresh account at the same size. All subsequent resets are 50% off.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Reset</div></div><div class="rr"><div class="rs">If you breach EOD drawdown during evaluation, your account fails. Purchase a reset for $79 (flat for all account sizes) to restart with a fresh account at the same size.</div></div></div>
       </div>
     </div>
 
