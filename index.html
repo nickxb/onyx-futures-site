@@ -4,15 +4,15 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0b0b0b">
-<meta name="description" content="ONYX Prop Futures — EOD drawdown only. Up to 10 funded accounts. Weekly payouts. No time limit. Start your evaluation from $59/mo.">
+<meta name="description" content="ONYX Prop Futures — EOD drawdown only. Up to 10 funded accounts. Weekly payouts. No time limit. Start your evaluation from $24/mo.">
 <title>ONYX Prop Futures. Get Funded. Trade Free.</title>
 <meta property="og:title" content="ONYX Prop Futures — Get Funded. Trade Free.">
-<meta property="og:description" content="EOD drawdown only. Up to 10 funded accounts. Weekly payouts. No time limit. Start from $59/mo.">
+<meta property="og:description" content="EOD drawdown only. Up to 10 funded accounts. Weekly payouts. No time limit. Start from $24/mo.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://onyx-futures.com">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ONYX Prop Futures — Get Funded. Trade Free.">
-<meta name="twitter:description" content="EOD drawdown only. Up to 10 funded accounts. Weekly payouts. No time limit. Start from $59/mo.">
+<meta name="twitter:description" content="EOD drawdown only. Up to 10 funded accounts. Weekly payouts. No time limit. Start from $24/mo.">
 <link rel="canonical" href="https://onyx-futures.com">
 <link rel="icon" href="img/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,616 +20,184 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0b0b0b;
-  --bg2: #0f0f0f;
-  --bg3: #131313;
-  --line: #1e1e1e;
-  --line2: #2a2a2a;
-  --red: #ff3a3a;
-  --red2: #ff6b6b;
-  --red3: #ff9b9b;
-  --muted: #888;
-  --text: #eaeef2;
-  --text2: #ccc;
+  --bg:#0b0b0b;--bg2:#0f0f0f;--bg3:#131313;--line:#1e1e1e;--line2:#2a2a2a;
+  --red:#ff3a3a;--red2:#ff6b6b;--red3:#ff9b9b;--muted:#888;--text:#eaeef2;--text2:#ccc;
+  --green:#34d399;
 }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* ===== NAV ===== */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  height: 64px;
-  background: rgba(11,11,11,.85);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  font-weight: 900;
-  font-size: 18px;
-  color: #ffe9e9;
-  letter-spacing: .02em;
-}
-.nav-logo svg { width: 36px; height: 36px; }
-.nav-logo .ring {
-  fill: none;
-  stroke: url(#g-nav);
-  stroke-width: 3.2;
-  stroke-dasharray: 220;
-  animation: spin 7s linear infinite;
-  vector-effect: non-scaling-stroke;
-}
-@keyframes spin { to { stroke-dashoffset: -220; } }
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  list-style: none;
-}
-.nav-links a {
-  color: var(--text2);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 8px 14px;
-  border-radius: 10px;
-  transition: .15s;
-}
-.nav-links a:hover { color: var(--text); background: rgba(255,58,58,.08); }
-.nav-cta {
-  background: linear-gradient(135deg, var(--red), var(--red2));
-  color: #000 !important;
-  border-radius: 10px;
-  font-weight: 900 !important;
-}
-.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(255,58,58,.3); background: rgba(255,58,58,.08) !important; color: var(--red) !important; }
-@media (max-width: 640px) {
-  nav { padding: 0 20px; }
-  .nav-links { gap: 4px; }
-  .nav-links li:not(:last-child) { display: none; }
-}
-
-/* ===== HERO ===== */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 120px 24px 80px;
-  position: relative;
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,58,58,.12) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(255,58,58,.05) 0%, transparent 60%);
-  pointer-events: none;
-}
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,58,58,.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,58,58,.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 0%, transparent 70%);
-  pointer-events: none;
-}
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border: 1px solid rgba(255,58,58,.3);
-  border-radius: 999px;
-  background: rgba(255,58,58,.06);
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--red3);
-  margin-bottom: 28px;
-  animation: fadeUp .6s ease-out both;
-}
-.hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--red); display: inline-block; animation: pulse 2s ease-in-out infinite; }
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
-
-.hero h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(64px, 10vw, 140px);
-  line-height: .92;
-  letter-spacing: .02em;
-  color: #fff;
-  margin-bottom: 12px;
-  animation: fadeUp .6s .1s ease-out both;
-}
-.hero h1 span {
-  background: linear-gradient(135deg, var(--red), var(--red2), #ffb3b3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-sub {
-  font-size: clamp(16px, 2.5vw, 22px);
-  color: var(--text2);
-  max-width: 600px;
-  margin: 0 auto 14px;
-  font-weight: 600;
-  animation: fadeUp .6s .2s ease-out both;
-}
-.hero-tags {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 40px;
-  animation: fadeUp .6s .3s ease-out both;
-}
-.tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 800;
-  border: 1px solid var(--line2);
-  background: var(--bg2);
-  color: var(--text2);
-}
-.tag.hot { border-color: rgba(255,58,58,.35); background: rgba(255,58,58,.06); color: #ffcaca; }
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  animation: fadeUp .6s .4s ease-out both;
-}
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  background: linear-gradient(135deg, var(--red), var(--red2));
-  color: #000;
-  font-weight: 900;
-  font-size: 15px;
-  border-radius: 14px;
-  text-decoration: none;
-  transition: .18s;
-  border: none;
-  cursor: pointer;
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(255,58,58,.3); }
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 28px;
-  background: transparent;
-  color: var(--text);
-  font-weight: 800;
-  font-size: 15px;
-  border-radius: 14px;
-  text-decoration: none;
-  border: 1.5px solid var(--line2);
-  transition: .18s;
-}
-.btn-outline:hover { border-color: rgba(255,58,58,.4); background: rgba(255,58,58,.05); }
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: none; }
-}
-
-/* ===== STATS BAR ===== */
-.stats-bar {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  background: var(--bg2);
-  padding: 28px 40px;
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: wrap;
-}
-.stat {
-  flex: 1;
-  min-width: 160px;
-  text-align: center;
-  padding: 0 32px;
-  border-right: 1px solid var(--line);
-}
-.stat:last-child { border-right: none; }
-.stat-val {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 42px;
-  line-height: 1;
-  color: var(--red2);
-  letter-spacing: .02em;
-}
-.stat-label {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  margin-top: 4px;
-}
-@media (max-width: 640px) {
-  .stats-bar { padding: 20px; gap: 16px; }
-  .stat { border-right: none; border-bottom: 1px solid var(--line); padding: 12px 0; min-width: 140px; }
-  .stat:last-child { border-bottom: none; }
-}
-
-/* ===== SECTIONS ===== */
-section { padding: 96px 24px; }
-.container { max-width: 1100px; margin: 0 auto; }
-.section-label {
-  font-size: 12px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  color: var(--red);
-  margin-bottom: 12px;
-}
-.section-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(40px, 6vw, 72px);
-  line-height: .95;
-  letter-spacing: .02em;
-  color: #fff;
-  margin-bottom: 16px;
-}
-.section-sub {
-  font-size: 17px;
-  color: var(--text2);
-  max-width: 560px;
-  font-weight: 500;
-}
-
-/* ===== DIFFERENTIATORS ===== */
-.diff-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  margin-top: 48px;
-}
-.diff-card {
-  background: linear-gradient(180deg, var(--bg3), var(--bg2));
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 28px;
-  position: relative;
-  overflow: hidden;
-  transition: .2s;
-}
-.diff-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,58,58,.06), transparent);
-  opacity: 0;
-  transition: .2s;
-}
-.diff-card:hover { border-color: rgba(255,58,58,.3); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,.4); }
-.diff-card:hover::before { opacity: 1; }
-.diff-icon {
-  width: 44px; height: 44px;
-  border-radius: 12px;
-  background: rgba(255,58,58,.1);
-  border: 1px solid rgba(255,58,58,.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-  font-size: 20px;
-}
-.diff-card h3 {
-  font-size: 17px;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 8px;
-}
-.diff-card p {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-.diff-card .diff-tag {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 900;
-  background: rgba(255,58,58,.1);
-  color: var(--red3);
-  border: 1px solid rgba(255,58,58,.2);
-}
-
-/* ===== HOW IT WORKS ===== */
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
-.step-card {
-  background: var(--bg2);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 32px;
-  position: relative;
-}
-.step-num {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 64px;
-  line-height: 1;
-  color: rgba(255,58,58,.15);
-  position: absolute;
-  top: 16px;
-  right: 20px;
-  letter-spacing: .02em;
-}
-.step-card h3 { font-size: 20px; font-weight: 900; color: #fff; margin-bottom: 10px; }
-.step-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
-
-/* ===== PRICING ===== */
-.pricing-tabs {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 32px;
-}
-.ptab {
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 1.5px solid var(--line2);
-  background: var(--bg2);
-  color: var(--text2);
-  font-weight: 800;
-  font-size: 14px;
-  cursor: pointer;
-  transition: .15s;
-}
-.ptab.active {
-  background: rgba(255,58,58,.12);
-  border-color: rgba(255,58,58,.35);
-  color: #ffcaca;
-}
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-}
-.price-card {
-  background: linear-gradient(180deg, var(--bg3), var(--bg2));
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 24px;
-  transition: .2s;
-  position: relative;
-  overflow: hidden;
-}
-.price-card.featured {
-  border-color: rgba(255,58,58,.4);
-  background: linear-gradient(180deg, rgba(255,58,58,.06), var(--bg2));
-}
-.price-card.featured::after {
-  content: 'POPULAR';
-  position: absolute;
-  top: 14px; right: -22px;
-  background: linear-gradient(135deg, var(--red), var(--red2));
-  color: #000;
-  font-size: 10px;
-  font-weight: 900;
-  padding: 4px 32px;
-  transform: rotate(45deg);
-  letter-spacing: .08em;
-}
-.price-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,.4); border-color: rgba(255,58,58,.25); }
-.price-size {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 32px;
-  color: #fff;
-  letter-spacing: .02em;
-  margin-bottom: 4px;
-}
-.price-amount {
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--red2);
-  margin-bottom: 4px;
-}
-.price-amount span { font-size: 14px; color: var(--muted); font-weight: 600; }
-.price-act { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
-.price-rules { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-.price-rules li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--text2);
-}
-.price-rules li::before { content: '✓'; color: var(--red); font-weight: 900; flex-shrink: 0; }
-.price-cta {
-  display: block;
-  text-align: center;
-  padding: 12px;
-  border-radius: 12px;
-  background: rgba(255,58,58,.1);
-  border: 1.5px solid rgba(255,58,58,.25);
-  color: #ffcaca;
-  font-weight: 900;
-  font-size: 14px;
-  text-decoration: none;
-  transition: .15s;
-}
-.price-cta:hover { background: rgba(255,58,58,.18); }
-.price-card.featured .price-cta {
-  background: linear-gradient(135deg, var(--red), var(--red2));
-  color: #000;
-  border: none;
-}
-.price-card.featured .price-cta:hover { box-shadow: 0 8px 20px rgba(255,58,58,.3); }
-
-/* ===== COMPARE TABLE ===== */
-.compare-wrap { overflow-x: auto; margin-top: 48px; }
-table.compare {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-  min-width: 600px;
-}
-table.compare th, table.compare td {
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--line);
-  text-align: left;
-}
-table.compare th {
-  font-weight: 900;
-  font-size: 13px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  background: var(--bg2);
-}
-table.compare th.onyx-col { color: var(--red3); }
-table.compare td.onyx-col { font-weight: 800; color: #fff; }
-.check { color: #34d399; font-weight: 900; }
-.cross { color: #ff6b6b; }
-.dash { color: var(--muted); }
-table.compare tr:hover td { background: rgba(255,255,255,.02); }
-
-/* ===== FAQ ===== */
-.faq-list { display: flex; flex-direction: column; gap: 2px; margin-top: 48px; }
-.faq-item {
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
-  background: var(--bg2);
-}
-.faq-q {
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 20px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  font-weight: 800;
-  font-size: 15px;
-  color: var(--text);
-  cursor: pointer;
-  text-align: left;
-  transition: .15s;
-}
-.faq-q:hover { color: #fff; }
-.faq-q .arrow { color: var(--red); font-size: 18px; transition: .2s; flex-shrink: 0; }
-.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
-.faq-a {
-  display: none;
-  padding: 0 24px 20px;
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.7;
-  border-top: 1px solid var(--line);
-}
-.faq-item.open .faq-a { display: block; }
-
-/* ===== CTA BANNER ===== */
-.cta-banner {
-  background: linear-gradient(135deg, rgba(255,58,58,.12), rgba(255,107,107,.06));
-  border: 1px solid rgba(255,58,58,.2);
-  border-radius: 24px;
-  padding: 60px 40px;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 800px;
-}
-.cta-banner h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(40px, 7vw, 80px);
-  line-height: .95;
-  letter-spacing: .02em;
-  color: #fff;
-  margin-bottom: 16px;
-}
-.cta-banner p { font-size: 17px; color: var(--text2); margin-bottom: 32px; }
-
-/* ===== FOOTER ===== */
-footer {
-  border-top: 1px solid var(--line);
-  padding: 48px 40px 32px;
-  background: var(--bg2);
-}
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  gap: 48px;
-}
-@media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; gap: 32px; } }
-.footer-brand { display: flex; flex-direction: column; gap: 12px; }
-.footer-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 18px; color: #ffe9e9; text-decoration: none; }
-.footer-logo svg { width: 32px; height: 32px; }
-.footer-desc { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 260px; }
-.footer-col h4 { font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 14px; }
-.footer-col a { display: block; color: var(--text2); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: .15s; }
-.footer-col a:hover { color: var(--red3); }
-.footer-bottom {
-  max-width: 1100px;
-  margin: 32px auto 0;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  font-size: 12px;
-  color: var(--muted);
-}
-.footer-bottom a { color: var(--muted); text-decoration: none; }
-.footer-bottom a:hover { color: var(--text2); }
-
-/* ===== PRICING TOGGLE ===== */
-.pricing-noact, .pricing-withact { display: none; }
-.pricing-noact.show, .pricing-withact.show { display: grid; }
-/* Mobile menu */
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(11,11,11,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:18px;color:#ffe9e9;letter-spacing:.02em}
+.nav-logo svg{width:36px;height:36px}
+.nav-logo .ring{fill:none;stroke:url(#g-nav);stroke-width:3.2;stroke-dasharray:220;animation:spin 7s linear infinite;vector-effect:non-scaling-stroke}
+@keyframes spin{to{stroke-dashoffset:-220}}
+.nav-links{display:flex;align-items:center;gap:8px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-weight:700;font-size:14px;padding:8px 14px;border-radius:10px;transition:.15s}
+.nav-links a:hover{color:var(--text);background:rgba(255,58,58,.08)}
+.nav-cta{background:linear-gradient(135deg,var(--red),var(--red2));color:#000!important;border-radius:10px;font-weight:900!important}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(255,58,58,.3);background:rgba(255,58,58,.08)!important;color:var(--red)!important}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
 .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:.2s}
-@media(max-width:640px){.hamburger{display:flex}.nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(11,11,11,.98);backdrop-filter:blur(16px);flex-direction:column;padding:16px;gap:4px;border-bottom:1px solid var(--line);display:none}.nav-links.open{display:flex}.nav-links li{display:block!important}.nav-links a{display:block;padding:12px 16px;border-radius:10px}}
+@media(max-width:640px){
+  nav{padding:0 20px}
+  .hamburger{display:flex}
+  .nav-links{position:fixed;top:64px;left:0;right:0;background:rgba(11,11,11,.98);backdrop-filter:blur(16px);flex-direction:column;padding:16px;gap:4px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .nav-links li{display:block!important}
+  .nav-links a{display:block;padding:12px 16px;border-radius:10px}
+}
+
+/* LAUNCH BANNER */
+.launch-banner{background:linear-gradient(90deg,rgba(255,58,58,.15),rgba(255,107,107,.08),rgba(255,58,58,.15));border-bottom:1px solid rgba(255,58,58,.2);padding:10px 24px;text-align:center;font-size:13px;font-weight:800;color:#ffcaca;letter-spacing:.02em;position:relative;z-index:999;margin-top:64px}
+.launch-banner span{color:#ff3a3a}
+.launch-banner .countdown{display:inline-flex;align-items:center;gap:6px;margin-left:12px;background:rgba(255,58,58,.15);border:1px solid rgba(255,58,58,.3);border-radius:999px;padding:2px 10px;font-size:12px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,58,58,.12) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(255,58,58,.05) 0%,transparent 60%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,58,58,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,58,58,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 0%,black 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid rgba(255,58,58,.3);border-radius:999px;background:rgba(255,58,58,.06);font-size:13px;font-weight:800;color:var(--red3);margin-bottom:28px;animation:fadeUp .6s ease-out both}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,10vw,140px);line-height:.92;letter-spacing:.02em;color:#fff;margin-bottom:12px;animation:fadeUp .6s .1s ease-out both}
+.hero h1 span{background:linear-gradient(135deg,var(--red),var(--red2),#ffb3b3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(16px,2.5vw,22px);color:var(--text2);max-width:600px;margin:0 auto 14px;font-weight:600;animation:fadeUp .6s .2s ease-out both}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px;animation:fadeUp .6s .3s ease-out both}
+.tag{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;font-size:13px;font-weight:800;border:1px solid var(--line2);background:var(--bg2);color:var(--text2)}
+.tag.hot{border-color:rgba(255,58,58,.35);background:rgba(255,58,58,.06);color:#ffcaca}
+.tag.sale{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.06);color:#34d399}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s .4s ease-out both}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(135deg,var(--red),var(--red2));color:#000;font-weight:900;font-size:15px;border-radius:14px;text-decoration:none;transition:.18s;border:none;cursor:pointer}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(255,58,58,.3)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:var(--text);font-weight:800;font-size:15px;border-radius:14px;text-decoration:none;border:1.5px solid var(--line2);transition:.18s}
+.btn-outline:hover{border-color:rgba(255,58,58,.4);background:rgba(255,58,58,.05)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* STATS BAR */
+.stats-bar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);padding:28px 40px;display:flex;justify-content:center;flex-wrap:wrap}
+.stat{flex:1;min-width:160px;text-align:center;padding:0 32px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat-val{font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;color:var(--red2);letter-spacing:.02em}
+.stat-label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
+@media(max-width:640px){.stats-bar{padding:20px;gap:16px}.stat{border-right:none;border-bottom:1px solid var(--line);padding:12px 0;min-width:140px}.stat:last-child{border-bottom:none}}
+
+/* SECTIONS */
+section{padding:96px 24px}
+.container{max-width:1100px;margin:0 auto}
+.section-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--red);margin-bottom:12px}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);line-height:.95;letter-spacing:.02em;color:#fff;margin-bottom:16px}
+.section-sub{font-size:17px;color:var(--text2);max-width:560px;font-weight:500}
+
+/* DIFF CARDS */
+.diff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:48px}
+.diff-card{background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:.2s}
+.diff-card:hover{border-color:rgba(255,58,58,.3);transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.diff-icon{width:44px;height:44px;border-radius:12px;background:rgba(255,58,58,.1);border:1px solid rgba(255,58,58,.2);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px}
+.diff-card h3{font-size:17px;font-weight:900;color:#fff;margin-bottom:8px}
+.diff-card p{font-size:14px;color:var(--muted);line-height:1.5}
+.diff-tag{display:inline-block;margin-top:14px;padding:4px 10px;border-radius:999px;font-size:11px;font-weight:900;background:rgba(255,58,58,.1);color:var(--red3);border:1px solid rgba(255,58,58,.2)}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
+.step-card{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:32px;position:relative}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:64px;line-height:1;color:rgba(255,58,58,.15);position:absolute;top:16px;right:20px;letter-spacing:.02em}
+.step-card h3{font-size:20px;font-weight:900;color:#fff;margin-bottom:10px}
+.step-card p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* DISCORD SECTION */
+.discord-section{background:linear-gradient(135deg,rgba(88,101,242,.08),rgba(88,101,242,.04));border:1px solid rgba(88,101,242,.2);border-radius:24px;padding:56px 40px;text-align:center;max-width:700px;margin:0 auto}
+.discord-section h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);line-height:.95;letter-spacing:.02em;color:#fff;margin-bottom:12px}
+.discord-section p{font-size:16px;color:var(--text2);max-width:480px;margin:0 auto 28px}
+.discord-card{display:inline-flex;align-items:center;gap:16px;padding:16px 24px;background:rgba(30,31,34,.8);border:1px solid rgba(255,255,255,.08);border-radius:16px;margin-bottom:24px;text-decoration:none}
+.discord-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#5865F2,#7289da);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.discord-info{text-align:left}
+.discord-name{font-size:16px;font-weight:900;color:#fff}
+.discord-meta{font-size:13px;color:#aaa;display:flex;align-items:center;gap:8px;margin-top:2px}
+.discord-online{width:8px;height:8px;background:#23d160;border-radius:50%;display:inline-block}
+.btn-discord{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;background:#5865F2;color:#fff;font-weight:900;font-size:15px;border-radius:14px;text-decoration:none;transition:.18s;border:none;cursor:pointer}
+.btn-discord:hover{background:#4752C4;transform:translateY(-2px);box-shadow:0 12px 28px rgba(88,101,242,.35)}
+.discord-svg{width:22px;height:22px;fill:currentColor}
+
+/* PRICING */
+.pricing-tabs{display:flex;gap:8px;justify-content:center;margin-bottom:32px}
+.ptab{padding:10px 20px;border-radius:10px;border:1.5px solid var(--line2);background:var(--bg2);color:var(--text2);font-weight:800;font-size:14px;cursor:pointer;transition:.15s}
+.ptab.active{background:rgba(255,58,58,.12);border-color:rgba(255,58,58,.35);color:#ffcaca}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.price-card{background:linear-gradient(180deg,var(--bg3),var(--bg2));border:1px solid var(--line);border-radius:18px;padding:24px;transition:.2s;position:relative;overflow:hidden}
+.price-card.featured{border-color:rgba(255,58,58,.4);background:linear-gradient(180deg,rgba(255,58,58,.06),var(--bg2))}
+.price-card.featured::after{content:'POPULAR';position:absolute;top:14px;right:-22px;background:linear-gradient(135deg,var(--red),var(--red2));color:#000;font-size:10px;font-weight:900;padding:4px 32px;transform:rotate(45deg);letter-spacing:.08em}
+.price-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.4);border-color:rgba(255,58,58,.25)}
+.price-size{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#fff;letter-spacing:.02em;margin-bottom:4px}
+
+/* Launch discount pricing */
+.price-launch{margin-bottom:4px}
+.price-original{font-size:16px;color:var(--muted);text-decoration:line-through;font-weight:700}
+.price-amount{font-size:28px;font-weight:900;color:var(--red2)}
+.price-amount span{font-size:14px;color:var(--muted);font-weight:600}
+.launch-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:999px;font-size:11px;font-weight:900;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.2);color:#34d399;margin-bottom:4px}
+.price-act{font-size:12px;color:var(--muted);margin-bottom:16px}
+.price-rules{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.price-rules li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2)}
+.price-rules li::before{content:'✓';color:var(--red);font-weight:900;flex-shrink:0}
+.price-cta{display:block;text-align:center;padding:12px;border-radius:12px;background:rgba(255,58,58,.1);border:1.5px solid rgba(255,58,58,.25);color:#ffcaca;font-weight:900;font-size:14px;text-decoration:none;transition:.15s}
+.price-cta:hover{background:rgba(255,58,58,.18)}
+.price-card.featured .price-cta{background:linear-gradient(135deg,var(--red),var(--red2));color:#000;border:none}
+.price-card.featured .price-cta:hover{box-shadow:0 8px 20px rgba(255,58,58,.3)}
+.pricing-noact,.pricing-withact{display:none}
+.pricing-noact.show,.pricing-withact.show{display:grid}
+
+/* COMPARE */
+.compare-wrap{overflow-x:auto;margin-top:48px}
+table.compare{width:100%;border-collapse:collapse;font-size:14px;min-width:600px}
+table.compare th,table.compare td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:left}
+table.compare th{font-weight:900;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;background:var(--bg2)}
+table.compare th.onyx-col{color:var(--red3)}
+table.compare td.onyx-col{font-weight:800;color:#fff}
+.check{color:#34d399;font-weight:900}
+.cross{color:#ff6b6b}
+.dash{color:var(--muted)}
+table.compare tr:hover td{background:rgba(255,255,255,.02)}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:2px;margin-top:48px}
+.faq-item{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg2)}
+.faq-q{width:100%;background:none;border:none;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;font-weight:800;font-size:15px;color:var(--text);cursor:pointer;text-align:left;transition:.15s}
+.faq-q:hover{color:#fff}
+.faq-q .arrow{color:var(--red);font-size:18px;transition:.2s;flex-shrink:0}
+.faq-item.open .faq-q .arrow{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 24px 20px;font-size:14px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line)}
+.faq-item.open .faq-a{display:block}
+
+/* CTA BANNER */
+.cta-banner{background:linear-gradient(135deg,rgba(255,58,58,.12),rgba(255,107,107,.06));border:1px solid rgba(255,58,58,.2);border-radius:24px;padding:60px 40px;text-align:center;margin:0 auto;max-width:800px}
+.cta-banner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,7vw,80px);line-height:.95;letter-spacing:.02em;color:#fff;margin-bottom:16px}
+.cta-banner p{font-size:17px;color:var(--text2);margin-bottom:32px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:48px 40px 32px;background:var(--bg2)}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px}
+@media(max-width:720px){.footer-inner{grid-template-columns:1fr;gap:32px}}
+.footer-brand{display:flex;flex-direction:column;gap:12px}
+.footer-logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;color:#ffe9e9;text-decoration:none}
+.footer-logo svg{width:32px;height:32px}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.6;max-width:260px}
+.footer-col h4{font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
+.footer-col a{display:block;color:var(--text2);text-decoration:none;font-size:14px;margin-bottom:10px;transition:.15s}
+.footer-col a:hover{color:var(--red3)}
+.footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted)}
+.footer-bottom a{color:var(--muted);text-decoration:none}
+.footer-bottom a:hover{color:var(--text2)}
 </style>
 </head>
 <body>
 
-<!-- SVG defs -->
 <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
   <defs>
     <linearGradient id="g-nav" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ff9b9b"/>
-      <stop offset="1" stop-color="#ff3a3a"/>
+      <stop offset="0" stop-color="#ff9b9b"/><stop offset="1" stop-color="#ff3a3a"/>
     </linearGradient>
   </defs>
 </svg>
@@ -637,15 +205,14 @@ footer {
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path class="ring" d="M32 3 C22 19 8 29 8 43 a24 24 0 0 0 48 0 C56 29 42 19 32 3 Z"/>
-    </svg>
+    <svg viewBox="0 0 64 64" aria-hidden="true"><path class="ring" d="M32 3 C22 19 8 29 8 43 a24 24 0 0 0 48 0 C56 29 42 19 32 3 Z"/></svg>
     ONYX
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#compare">Compare</a></li>
+    <li><a href="rules.html">Rules</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="affiliate.html">Affiliates</a></li>
     <li><a href="https://dashboard.onyx-futures.com/home.html">Dashboard</a></li>
@@ -654,8 +221,14 @@ footer {
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
+<!-- LAUNCH SALE BANNER -->
+<div class="launch-banner">
+  🔥 <span>LAUNCH SALE — 30% OFF</span> all evaluation plans. Limited time only.
+  <span class="countdown">Use code ONYX30</span>
+</div>
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="margin-top:0;padding-top:160px">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-badge"><span></span> Now accepting evaluations</div>
@@ -665,7 +238,7 @@ footer {
     <span class="tag hot">🛡️ EOD Drawdown Only</span>
     <span class="tag">💰 Weekly Payouts</span>
     <span class="tag">✖ 10 Max Accounts</span>
-    <span class="tag">⚡ From $59/mo</span>
+    <span class="tag sale">🔥 From $24/mo</span>
   </div>
   <div class="hero-actions">
     <a href="https://dashboard.onyx-futures.com/login.html" class="btn-primary">Start Your Evaluation →</a>
@@ -679,7 +252,7 @@ footer {
   <div class="stat"><div class="stat-val">3</div><div class="stat-label">Min Trading Days</div></div>
   <div class="stat"><div class="stat-val">10</div><div class="stat-label">Max Accounts</div></div>
   <div class="stat"><div class="stat-val">EOD</div><div class="stat-label">Drawdown Type</div></div>
-  <div class="stat"><div class="stat-val">$59</div><div class="stat-label">Starting From</div></div>
+  <div class="stat"><div class="stat-val">$24</div><div class="stat-label">Starting From</div></div>
 </div>
 
 <!-- DIFFERENTIATORS -->
@@ -704,98 +277,88 @@ footer {
       <div class="diff-card">
         <div class="diff-icon">✖10</div>
         <h3>Up to 10 Accounts</h3>
-        <p>Pass once, scale to 10. Trade up to 10 funded accounts simultaneously. Each account purchased and passed individually — max allocation, max potential.</p>
+        <p>Pass once, scale to 10. Trade up to 10 funded accounts simultaneously. Each account purchased and passed individually.</p>
         <span class="diff-tag">Industry-leading allocation</span>
       </div>
       <div class="diff-card">
         <div class="diff-icon">⚡</div>
         <h3>No Daily Loss Limit</h3>
-        <p>No daily loss limit during evaluation. Your only hard limit is the EOD trailing drawdown. No more getting stopped out on a bad morning and locked out for the day.</p>
+        <p>No daily loss limit during evaluation. Your only hard limit is the EOD trailing drawdown. No more getting locked out on a bad morning.</p>
         <span class="diff-tag">More room to trade</span>
       </div>
       <div class="diff-card">
         <div class="diff-icon">🎯</div>
         <h3>Rithmic Infrastructure</h3>
-        <p>Institutional-grade execution via Rithmic. Connect with NinjaTrader, R|Trader Pro, or any Rithmic-compatible platform. Ultra-low latency. Real data.</p>
+        <p>Institutional-grade execution via Rithmic. Connect with NinjaTrader, R|Trader Pro, or any Rithmic-compatible platform.</p>
         <span class="diff-tag">Professional grade</span>
       </div>
     </div>
   </div>
 </section>
 
+<!-- DISCORD COMMUNITY -->
+<section style="padding:80px 24px;background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container" style="text-align:center">
+    <p class="section-label" style="text-align:center">Community</p>
+    <div class="discord-section">
+      <h2>Join Our<br><span style="background:linear-gradient(135deg,#5865F2,#7289da);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Community.</span></h2>
+      <p>Connect with funded traders, get strategy tips, and stay ahead of market moves. Our Discord is active, free, and growing fast.</p>
+      <a href="https://discord.gg/3G3jQ3seeJ" target="_blank" rel="noopener" class="discord-card">
+        <div class="discord-avatar">
+          <svg class="discord-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.09.118 18.12.143 18.14a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        </div>
+        <div class="discord-info">
+          <div class="discord-name">ONYX Prop Futures</div>
+          <div class="discord-meta">
+            <span class="discord-online"></span>
+            <span>Active community · Traders, signals & support</span>
+          </div>
+        </div>
+      </a>
+      <br>
+      <a href="https://discord.gg/3G3jQ3seeJ" target="_blank" rel="noopener" class="btn-discord">
+        <svg class="discord-svg" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.09.118 18.12.143 18.14a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+        Join Our Discord
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- FUNDED ACCOUNT PAYOUT RULES -->
-<section id="funded-rules" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section id="funded-rules">
   <div class="container">
     <p class="section-label">Funded Account</p>
     <h2 class="section-title">Payout Rules.</h2>
     <p class="section-sub">Clear, consistent, no surprises. Here's exactly how payouts work once you're funded.</p>
-
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:40px 0 48px">
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center">
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center">
         <div style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:12px">25K Account</div>
         <div style="font-size:42px;font-weight:900;color:#fff;line-height:1;margin-bottom:6px">$1,500</div>
         <div style="font-size:13px;color:var(--muted)">Max per payout request</div>
       </div>
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center">
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center">
         <div style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:12px">50K Account</div>
         <div style="font-size:42px;font-weight:900;color:#fff;line-height:1;margin-bottom:6px">$2,000</div>
         <div style="font-size:13px;color:var(--muted)">Max per payout request</div>
       </div>
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center">
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center">
         <div style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:12px">100K Account</div>
         <div style="font-size:42px;font-weight:900;color:#fff;line-height:1;margin-bottom:6px">$3,500</div>
         <div style="font-size:13px;color:var(--muted)">Max per payout request</div>
       </div>
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center">
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center">
         <div style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-bottom:12px">150K Account</div>
         <div style="font-size:42px;font-weight:900;color:#fff;line-height:1;margin-bottom:6px">$4,500</div>
         <div style="font-size:13px;color:var(--muted)">Max per payout request</div>
       </div>
     </div>
-
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px;margin:0 auto">
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px">
-        <span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span>
-        <div>
-          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">$300 Minimum</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.5">Minimum payout request amount</div>
-        </div>
-      </div>
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px">
-        <span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span>
-        <div>
-          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">80% Profit Split</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.5">You keep 80% of all profits</div>
-        </div>
-      </div>
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px">
-        <span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span>
-        <div>
-          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">5 Winning Days Required</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.5">5 profitable days ≥ $200 before first payout</div>
-        </div>
-      </div>
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px">
-        <span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span>
-        <div>
-          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">40% Consistency Rule</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.5">No single day can exceed 40% of total payout cycle profits</div>
-        </div>
-      </div>
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px">
-        <span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span>
-        <div>
-          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">Weekly Payouts</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.5">Request once per week when eligible</div>
-        </div>
-      </div>
-      <div style="background:var(--bg1);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px">
-        <span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span>
-        <div>
-          <div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">No Lifetime Cap</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.5">Keep earning and requesting indefinitely</div>
-        </div>
-      </div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px"><span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span><div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">$300 Minimum</div><div style="font-size:13px;color:var(--muted);line-height:1.5">Minimum payout request amount</div></div></div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px"><span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span><div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">80% Profit Split</div><div style="font-size:13px;color:var(--muted);line-height:1.5">You keep 80% of all profits</div></div></div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px"><span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span><div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">5 Winning Days Required</div><div style="font-size:13px;color:var(--muted);line-height:1.5">5 profitable days ≥ $200 before first payout</div></div></div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px"><span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span><div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">40% Consistency Rule</div><div style="font-size:13px;color:var(--muted);line-height:1.5">No single day can exceed 40% of total payout cycle profits</div></div></div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px"><span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span><div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">Weekly Payouts</div><div style="font-size:13px;color:var(--muted);line-height:1.5">Request once per week when eligible</div></div></div>
+      <div style="background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:14px"><span style="color:var(--red);font-size:18px;line-height:1;flex-shrink:0">✓</span><div><div style="font-size:14px;font-weight:700;color:#fff;margin-bottom:4px">No Lifetime Cap</div><div style="font-size:13px;color:var(--muted);line-height:1.5">Keep earning and requesting indefinitely</div></div></div>
     </div>
   </div>
 </section>
@@ -807,21 +370,9 @@ footer {
     <h2 class="section-title">Three Steps to Funded.</h2>
     <p class="section-sub">Simple, transparent, no surprises.</p>
     <div class="steps">
-      <div class="step-card">
-        <span class="step-num">01</span>
-        <h3>Choose Your Evaluation</h3>
-        <p>Pick your account size from $25K to $150K. Choose the No Activation Fee path or pay less monthly with Activation. No time limit — your subscription runs monthly until you pass.</p>
-      </div>
-      <div class="step-card">
-        <span class="step-num">02</span>
-        <h3>Pass the Challenge</h3>
-        <p>Hit your profit target in a minimum of 3 trading days while staying within EOD drawdown. No daily loss limit. 40% consistency rule applies. Just trade your strategy and pass.</p>
-      </div>
-      <div class="step-card">
-        <span class="step-num">03</span>
-        <h3>Get Funded & Get Paid</h3>
-        <p>Receive your Diamond funded account. Keep 80% of profits. Request payouts weekly. Scale up to 10 accounts simultaneously. Build your trading career with ONYX.</p>
-      </div>
+      <div class="step-card"><span class="step-num">01</span><h3>Choose Your Evaluation</h3><p>Pick your account size from $25K to $150K. Choose the No Activation Fee path or pay less monthly with the Activation plan. No time limit — your subscription runs monthly until you pass.</p></div>
+      <div class="step-card"><span class="step-num">02</span><h3>Pass the Challenge</h3><p>Hit your profit target in a minimum of 3 trading days while staying within EOD drawdown. No daily loss limit. 40% consistency rule applies. Just trade your strategy and pass.</p></div>
+      <div class="step-card"><span class="step-num">03</span><h3>Get Funded & Get Paid</h3><p>Receive your Diamond funded account. Keep 80% of profits. Request payouts weekly. Scale up to 10 accounts simultaneously. Build your trading career with ONYX.</p></div>
     </div>
   </div>
 </section>
@@ -833,15 +384,27 @@ footer {
     <h2 class="section-title">Simple Pricing.</h2>
     <p class="section-sub">Two paths. No hidden fees. Cancel anytime.</p>
 
-    <div class="pricing-tabs" style="margin-top:32px">
-      <button class="ptab active" onclick="showPricing('noact')">No Activation Fee</button>
-      <button class="ptab" onclick="showPricing('withact')">With Activation</button>
+    <!-- Launch sale notice -->
+    <div style="background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2);border-radius:12px;padding:14px 20px;margin:24px 0;display:flex;align-items:center;gap:12px;max-width:600px">
+      <span style="font-size:20px">🔥</span>
+      <div>
+        <div style="font-size:14px;font-weight:800;color:#34d399">Launch Sale — 30% Off All Plans</div>
+        <div style="font-size:13px;color:var(--muted)">Prices shown are already discounted. Original prices shown struck through.</div>
+      </div>
     </div>
 
+    <div class="pricing-tabs">
+      <button class="ptab active" onclick="showPricing('noact',event)">No Activation Fee</button>
+      <button class="ptab" onclick="showPricing('withact',event)">With Activation ($99)</button>
+    </div>
+
+    <!-- NO ACTIVATION FEE — 30% off applied -->
     <div class="pricing-grid pricing-noact show">
       <div class="price-card">
         <div class="price-size">25K</div>
-        <div class="price-amount">$99<span>/mo</span></div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$99</span></div>
+        <div class="price-amount">$69<span>/mo</span></div>
         <div class="price-act">$0 activation fee</div>
         <ul class="price-rules">
           <li>$1,500 profit target</li>
@@ -849,13 +412,15 @@ footer {
           <li>3 max contracts</li>
           <li>3 min trading days</li>
           <li>40% consistency rule</li>
-          <li>Reset: $79</li>
+          <li>Reset: $79 flat</li>
         </ul>
         <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 25K Eval</a>
       </div>
       <div class="price-card featured">
         <div class="price-size">50K</div>
-        <div class="price-amount">$149<span>/mo</span></div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$149</span></div>
+        <div class="price-amount">$104<span>/mo</span></div>
         <div class="price-act">$0 activation fee</div>
         <ul class="price-rules">
           <li>$3,000 profit target</li>
@@ -863,13 +428,15 @@ footer {
           <li>6 max contracts</li>
           <li>3 min trading days</li>
           <li>40% consistency rule</li>
-          <li>Reset: $119</li>
+          <li>Reset: $79 flat</li>
         </ul>
         <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 50K Eval</a>
       </div>
       <div class="price-card">
         <div class="price-size">100K</div>
-        <div class="price-amount">$199<span>/mo</span></div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$199</span></div>
+        <div class="price-amount">$139<span>/mo</span></div>
         <div class="price-act">$0 activation fee</div>
         <ul class="price-rules">
           <li>$6,000 profit target</li>
@@ -877,13 +444,15 @@ footer {
           <li>12 max contracts</li>
           <li>3 min trading days</li>
           <li>40% consistency rule</li>
-          <li>Reset: $159</li>
+          <li>Reset: $79 flat</li>
         </ul>
         <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 100K Eval</a>
       </div>
       <div class="price-card">
         <div class="price-size">150K</div>
-        <div class="price-amount">$269<span>/mo</span></div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$269</span></div>
+        <div class="price-amount">$188<span>/mo</span></div>
         <div class="price-act">$0 activation fee</div>
         <ul class="price-rules">
           <li>$9,000 profit target</li>
@@ -891,66 +460,75 @@ footer {
           <li>15 max contracts</li>
           <li>3 min trading days</li>
           <li>40% consistency rule</li>
-          <li>Reset: $199</li>
+          <li>Reset: $79 flat</li>
         </ul>
         <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 150K Eval</a>
       </div>
     </div>
 
+    <!-- WITH ACTIVATION — new lower prices with 30% off -->
     <div class="pricing-grid pricing-withact">
       <div class="price-card">
         <div class="price-size">25K</div>
-        <div class="price-amount">$59<span>/mo</span></div>
-        <div class="price-act">+ $85 activation when funded</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$35</span></div>
+        <div class="price-amount">$24<span>/mo</span></div>
+        <div class="price-act">+ $99 activation when funded</div>
         <ul class="price-rules">
           <li>$1,500 profit target</li>
           <li>$1,500 EOD drawdown</li>
           <li>3 max contracts</li>
           <li>3 min trading days</li>
           <li>40% consistency rule</li>
-          <li>Reset: $49</li>
+          <li>Reset: $79 flat</li>
         </ul>
         <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 25K Eval</a>
       </div>
       <div class="price-card featured">
         <div class="price-size">50K</div>
-        <div class="price-amount">$89<span>/mo</span></div>
-        <div class="price-act">+ $85 activation when funded</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$65</span></div>
+        <div class="price-amount">$45<span>/mo</span></div>
+        <div class="price-act">+ $99 activation when funded</div>
         <ul class="price-rules">
           <li>$3,000 profit target</li>
           <li>$2,000 EOD drawdown</li>
           <li>6 max contracts</li>
           <li>3 min trading days</li>
           <li>40% consistency rule</li>
-          <li>Reset: $69</li>
+          <li>Reset: $79 flat</li>
         </ul>
         <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 50K Eval</a>
       </div>
       <div class="price-card">
         <div class="price-size">100K</div>
-        <div class="price-amount">$119<span>/mo</span></div>
-        <div class="price-act">+ $85 activation when funded</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$89</span></div>
+        <div class="price-amount">$62<span>/mo</span></div>
+        <div class="price-act">+ $99 activation when funded</div>
         <ul class="price-rules">
           <li>$6,000 profit target</li>
           <li>$3,000 EOD drawdown</li>
           <li>12 max contracts</li>
           <li>3 min trading days</li>
           <li>40% consistency rule</li>
-          <li>Reset: $99</li>
+          <li>Reset: $79 flat</li>
         </ul>
         <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 100K Eval</a>
       </div>
       <div class="price-card">
         <div class="price-size">150K</div>
-        <div class="price-amount">$159<span>/mo</span></div>
-        <div class="price-act">+ $85 activation when funded</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$110</span></div>
+        <div class="price-amount">$77<span>/mo</span></div>
+        <div class="price-act">+ $99 activation when funded</div>
         <ul class="price-rules">
           <li>$9,000 profit target</li>
           <li>$5,000 EOD drawdown</li>
           <li>15 max contracts</li>
           <li>3 min trading days</li>
           <li>40% consistency rule</li>
-          <li>Reset: $129</li>
+          <li>Reset: $79 flat</li>
         </ul>
         <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 150K Eval</a>
       </div>
@@ -967,68 +545,18 @@ footer {
     <div class="compare-wrap">
       <table class="compare">
         <thead>
-          <tr>
-            <th>Rule</th>
-            <th class="onyx-col">ONYX</th>
-            <th>Other Firms</th>
-            <th>Other Firms</th>
-          </tr>
+          <tr><th>Rule</th><th class="onyx-col">ONYX</th><th>Other Firms</th><th>Other Firms</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Daily loss limit during eval</td>
-            <td class="onyx-col check">None ✓</td>
-            <td class="cross">Yes</td>
-            <td class="dash">EOD accounts only</td>
-          </tr>
-          <tr>
-            <td>Drawdown type</td>
-            <td class="onyx-col check">EOD Only ✓</td>
-            <td class="check">EOD ✓</td>
-            <td class="dash">EOD or Intraday</td>
-          </tr>
-          <tr>
-            <td>Min trading days</td>
-            <td class="onyx-col check">3 ✓</td>
-            <td>2</td>
-            <td class="check">0 ✓</td>
-          </tr>
-          <tr>
-            <td>Max simultaneous accounts</td>
-            <td class="onyx-col check">10 ✓</td>
-            <td class="cross">5</td>
-            <td>20</td>
-          </tr>
-          <tr>
-            <td>News trading window</td>
-            <td class="onyx-col check">2 min ✓</td>
-            <td class="dash">—</td>
-            <td class="cross">Restricted</td>
-          </tr>
-          <tr>
-            <td>Weekly payouts</td>
-            <td class="onyx-col check">✓</td>
-            <td class="check">✓</td>
-            <td class="check">✓</td>
-          </tr>
-          <tr>
-            <td>Profit split</td>
-            <td class="onyx-col">80%</td>
-            <td>90%</td>
-            <td>90–100%</td>
-          </tr>
-          <tr>
-            <td>Platform</td>
-            <td class="onyx-col">Rithmic</td>
-            <td>Tradovate / ProjectX</td>
-            <td>Rithmic / Tradovate</td>
-          </tr>
-          <tr>
-            <td>50K eval starting price</td>
-            <td class="onyx-col check">$89/mo ✓</td>
-            <td>$49/mo + $149 activation</td>
-            <td>$207/mo (standard)</td>
-          </tr>
+          <tr><td>Daily loss limit during eval</td><td class="onyx-col check">None ✓</td><td class="cross">Yes</td><td class="dash">EOD accounts only</td></tr>
+          <tr><td>Drawdown type</td><td class="onyx-col check">EOD Only ✓</td><td class="check">EOD ✓</td><td class="dash">EOD or Intraday</td></tr>
+          <tr><td>Min trading days</td><td class="onyx-col check">3 ✓</td><td>2</td><td class="check">0 ✓</td></tr>
+          <tr><td>Max simultaneous accounts</td><td class="onyx-col check">10 ✓</td><td class="cross">5</td><td>20</td></tr>
+          <tr><td>Weekly payouts</td><td class="onyx-col check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Profit split</td><td class="onyx-col">80%</td><td>90%</td><td>90–100%</td></tr>
+          <tr><td>Platform</td><td class="onyx-col">Rithmic</td><td>Tradovate / ProjectX</td><td>Rithmic / Tradovate</td></tr>
+          <tr><td>Reset price</td><td class="onyx-col check">$79 flat ✓</td><td class="dash">Varies by size</td><td class="dash">Varies by size</td></tr>
+          <tr><td>50K with activation price</td><td class="onyx-col check">$45/mo ✓</td><td>$49/mo + $149 act.</td><td>$207/mo standard</td></tr>
         </tbody>
       </table>
     </div>
@@ -1042,48 +570,25 @@ footer {
     <h2 class="section-title">Got Questions?</h2>
     <p class="section-sub">Everything you need to know before starting your evaluation.</p>
     <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What is the consistency rule? <span class="arrow">+</span></button>
-        <div class="faq-a">A 40% consistency rule applies on all accounts. No single trading day may represent more than 40% of your total profits when requesting a payout. This applies during evaluation and on funded Diamond accounts.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What is EOD drawdown? <span class="arrow">+</span></button>
-        <div class="faq-a">End-of-Day drawdown means your trailing drawdown limit only updates at market close — not intraday. If you're down during the session but recover before close, your drawdown threshold doesn't move. You get breathing room to trade without getting killed by intraday volatility.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is there a daily loss limit? <span class="arrow">+</span></button>
-        <div class="faq-a">No daily loss limit during evaluation. Your only hard limit is the EOD trailing drawdown. On funded Diamond accounts, a daily loss limit of 50% of your drawdown applies to protect the account.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How many accounts can I run? <span class="arrow">+</span></button>
-        <div class="faq-a">Up to 10 accounts simultaneously — evaluation or funded. Each account is purchased and passed separately. There's no free allocation — you buy and pass each account individually, just like Apex. The cap is 10 total active accounts.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">How fast are payouts? <span class="arrow">+</span></button>
-        <div class="faq-a">Weekly. Submit a payout request from your dashboard and receive funds within 3–5 business days. No waiting a month. No complicated payout ladders from day one.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What platform do you use? <span class="arrow">+</span></button>
-        <div class="faq-a">Rithmic. You can connect with NinjaTrader, R|Trader Pro, or any Rithmic-compatible platform. Institutional-grade execution, ultra-low latency, real CME data.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is there a time limit on the evaluation? <span class="arrow">+</span></button>
-        <div class="faq-a">No time limit. Your monthly subscription keeps your evaluation active as long as you're subscribed. Take as long as you need. If you fail, purchase a reset — subsequent resets are 50% off.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What can I trade? <span class="arrow">+</span></button>
-        <div class="faq-a">Futures contracts listed on CME, COMEX, NYMEX, and CBOT. This includes ES, NQ, CL, GC, ZC, ZS, and all micro equivalents. Stocks, options, forex, crypto, and CFDs are not permitted.</div>
-      </div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the consistency rule? <span class="arrow">+</span></button><div class="faq-a">A 40% consistency rule applies on funded Diamond accounts. No single trading day may represent more than 40% of your total profits when requesting a payout. This ensures consistent trading rather than one lucky day.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is EOD drawdown? <span class="arrow">+</span></button><div class="faq-a">End-of-Day drawdown means your trailing drawdown limit only updates at market close — not intraday. If you're down during the session but recover before close, your drawdown threshold doesn't move. You get breathing room to trade without getting killed by intraday volatility.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a daily loss limit? <span class="arrow">+</span></button><div class="faq-a">No daily loss limit during evaluation. Your only hard limit is the EOD trailing drawdown. On funded Diamond accounts, a daily loss limit of 50% of your drawdown applies to protect the account long-term.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many accounts can I run? <span class="arrow">+</span></button><div class="faq-a">Up to 10 funded Diamond accounts simultaneously. Evaluations are unlimited. Each funded account is purchased and passed separately. You can copy trade across all accounts in R|Trader Pro since they all run under the same Rithmic login.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the activation fee plan? <span class="arrow">+</span></button><div class="faq-a">The activation fee plan lets you pay a lower monthly fee during evaluation. When you pass, you pay a one-time $99 activation fee to unlock your Diamond funded account. If you don't pass, you never pay the activation fee. Great for traders who expect to pass quickly.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How fast are payouts? <span class="arrow">+</span></button><div class="faq-a">Weekly. Submit a payout request from your dashboard and receive funds within 3–5 business days. No waiting a month. No complicated payout ladders.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What platform do you use? <span class="arrow">+</span></button><div class="faq-a">Rithmic. You can connect with NinjaTrader, R|Trader Pro, or any Rithmic-compatible platform. Institutional-grade execution, ultra-low latency, real CME data.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the reset price? <span class="arrow">+</span></button><div class="faq-a">$79 flat — same price regardless of account size. If you breach EOD drawdown during evaluation, purchase a reset to restart with a fresh account at the same size.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What can I trade? <span class="arrow">+</span></button><div class="faq-a">Futures contracts on CME, COMEX, NYMEX, and CBOT. This includes ES, NQ, CL, GC, ZC, ZS, and all micro equivalents. Stocks, options, forex, crypto, and CFDs are not permitted.</div></div>
     </div>
   </div>
 </section>
 
 <!-- CTA BANNER -->
-<section style="padding: 80px 24px">
+<section style="padding:80px 24px">
   <div class="container">
     <div class="cta-banner">
       <h2>Ready to Get<br><span style="color:var(--red2)">Funded?</span></h2>
-      <p>EOD drawdown. No time limit. Weekly payouts. Start from $59/mo.</p>
+      <p>30% off launch pricing. EOD drawdown. No time limit. Weekly payouts. From $24/mo.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <a href="https://dashboard.onyx-futures.com/login.html" class="btn-primary">Start Your Evaluation →</a>
         <a href="rules.html" class="btn-outline">Read the Rules</a>
@@ -1097,9 +602,7 @@ footer {
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="/" class="footer-logo">
-        <svg viewBox="0 0 64 64" aria-hidden="true" style="width:32px;height:32px">
-          <path d="M32 3 C22 19 8 29 8 43 a24 24 0 0 0 48 0 C56 29 42 19 32 3 Z" fill="none" stroke="url(#g-nav)" stroke-width="3.2"/>
-        </svg>
+        <svg viewBox="0 0 64 64" aria-hidden="true" style="width:32px;height:32px"><path d="M32 3 C22 19 8 29 8 43 a24 24 0 0 0 48 0 C56 29 42 19 32 3 Z" fill="none" stroke="url(#g-nav)" stroke-width="3.2"/></svg>
         ONYX
       </a>
       <p class="footer-desc">ONYX Prop Futures — A simulated futures prop firm built for real traders. EOD drawdown. No time limit. Weekly payouts.</p>
@@ -1113,16 +616,19 @@ footer {
       <a href="affiliate.html">Affiliates</a>
     </div>
     <div class="footer-col">
+      <h4>Learn</h4>
+      <a href="rules.html">Trading Rules</a>
+      <a href="#faq">FAQ</a>
+      <a href="#compare">Compare</a>
+      <a href="https://dashboard.onyx-futures.com/help-center.html">Help Center</a>
+    </div>
+    <div class="footer-col">
       <h4>Community</h4>
       <a href="https://discord.gg/3G3jQ3seeJ" target="_blank" rel="noopener">Discord</a>
       <a href="https://x.com/onyx_futures" target="_blank" rel="noopener">Twitter / X</a>
       <a href="https://www.instagram.com/onyxfutures" target="_blank" rel="noopener">Instagram</a>
-    </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
       <a href="https://dashboard.onyx-futures.com/legal.html#terms">Terms &amp; Conditions</a>
       <a href="https://dashboard.onyx-futures.com/legal.html#privacy">Privacy Policy</a>
-      <a href="https://dashboard.onyx-futures.com/legal.html#disclaimers">Disclaimers</a>
       <a href="https://dashboard.onyx-futures.com/legal.html#risk">Risk Disclosures</a>
     </div>
   </div>
@@ -1133,13 +639,12 @@ footer {
 </footer>
 
 <script>
-function showPricing(type) {
+function showPricing(type, e) {
   document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+  e.target.classList.add('active');
   document.querySelector('.pricing-noact').classList.remove('show');
   document.querySelector('.pricing-withact').classList.remove('show');
-  if (type === 'noact') document.querySelector('.pricing-noact').classList.add('show');
-  else document.querySelector('.pricing-withact').classList.add('show');
+  document.querySelector(type === 'noact' ? '.pricing-noact' : '.pricing-withact').classList.add('show');
 }
 
 function toggleFaq(btn) {
@@ -1152,29 +657,21 @@ function toggleFaq(btn) {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; } });
 }, { threshold: 0.1 });
-
 document.querySelectorAll('.diff-card, .step-card, .price-card').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
+  el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity .5s ease, transform .5s ease';
   observer.observe(el);
 });
 
-// Mobile menu
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 hamburger?.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); hamburger.setAttribute('aria-expanded', open); });
 document.querySelectorAll('.nav-links a').forEach(a => { a.addEventListener('click', () => { navLinks.classList.remove('open'); hamburger?.setAttribute('aria-expanded', 'false'); }); });
 </script>
 
-<!-- Intercom -->
 <script>
-  window.intercomSettings = {
-    api_base: "https://api-iam.intercom.io",
-    app_id: "cv73z6f3"
-  };
+  window.intercomSettings = { api_base: "https://api-iam.intercom.io", app_id: "cv73z6f3" };
   (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/cv73z6f3';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);};if(document.readyState==='complete'){l();}else if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();
 </script>
-
 </body>
 </html>
