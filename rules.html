@@ -162,6 +162,9 @@ footer a:hover{color:var(--red3)}
     <div class="sidebar-label" style="margin-top:8px">Phase 2 — Funded</div>
     <a href="#funded-rules">Diamond Rules</a>
     <a href="#payout-rules">Payout Rules</a>
+    <div class="sidebar-label" style="margin-top:8px">New Account Types</div>
+    <a href="#flex-rules">🟢 ONYX Flex</a>
+    <a href="#direct-rules">⚡ ONYX Direct</a>
     <div class="sidebar-label" style="margin-top:8px">General</div>
     <a href="#instruments">Allowed Instruments</a>
     <a href="#prohibited">Prohibited Activity</a>
@@ -174,7 +177,7 @@ footer a:hover{color:var(--red3)}
       <p class="lbl">Trading Rules</p>
       <h1>Complete Rule Set.<br>No Surprises.</h1>
       <p>Every rule for every phase, clearly explained. Read this before you start your evaluation.</p>
-      <p class="updated">Last updated: April 2026</p>
+      <p class="updated">Last updated: May 2026</p>
     </div>
 
     <!-- QUICK SUMMARY -->
@@ -201,8 +204,10 @@ footer a:hover{color:var(--red3)}
       <h2>Account Sizes <span class="phase-badge both">All Phases</span></h2>
       <p class="section-desc">Choose from 25K to 150K. Two pricing paths — No Activation Fee or With Activation.</p>
       <div class="tabs">
-        <button class="tab active" onclick="switchTab('noact',this)">No Activation Fee</button>
-        <button class="tab" onclick="switchTab('withact',this)">With Activation ($99)</button>
+        <button class="tab active" onclick="switchTab('noact',this)">Sapphire — No Activation</button>
+        <button class="tab" onclick="switchTab('withact',this)">Sapphire — With Activation</button>
+        <button class="tab" onclick="switchTab('flex',this)">🟢 Flex</button>
+        <button class="tab" onclick="switchTab('direct',this)">⚡ Direct</button>
       </div>
       <div id="tab-noact" class="size-wrap">
         <table class="st">
@@ -226,7 +231,29 @@ footer a:hover{color:var(--red3)}
           </tbody>
         </table>
       </div>
-      <div class="hl yellow" style="margin-top:14px"><p><strong>Which path?</strong> Choose <strong>With Activation</strong> if you expect to pass quickly — lower monthly cost, $99 only when funded. Choose <strong>No Activation Fee</strong> for zero surprise costs when you pass.</p></div>
+      <div id="tab-flex" class="size-wrap" style="display:none">
+        <table class="st">
+          <thead><tr><th>Size</th><th>Monthly</th><th>Profit Target</th><th>EOD Drawdown</th><th>DLL</th><th>Max Contracts</th><th>Reset</th></tr></thead>
+          <tbody>
+            <tr><td>25K</td><td><span class="pill pr">$79/mo</span></td><td>$1,500</td><td>$1,500</td><td style="color:var(--green);font-weight:800">None</td><td>3 (Micros ×10)</td><td>$79</td></tr>
+            <tr><td>50K</td><td><span class="pill pr">$119/mo</span></td><td>$3,000</td><td>$2,000</td><td style="color:var(--green);font-weight:800">None</td><td>6 (Micros ×10)</td><td>$79</td></tr>
+            <tr><td>100K</td><td><span class="pill pr">$159/mo</span></td><td>$6,000</td><td>$3,000</td><td style="color:var(--green);font-weight:800">None</td><td>12 (Micros ×10)</td><td>$79</td></tr>
+            <tr><td>150K</td><td><span class="pill pr">$199/mo</span></td><td>$9,000</td><td>$5,000</td><td style="color:var(--green);font-weight:800">None</td><td>15 (Micros ×10)</td><td>$79</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="tab-direct" class="size-wrap" style="display:none">
+        <table class="st">
+          <thead><tr><th>Size</th><th>Monthly</th><th>EOD Drawdown</th><th>DLL</th><th>Consistency</th><th>Payout Cap</th><th>Reset</th></tr></thead>
+          <tbody>
+            <tr><td>25K</td><td><span class="pill pr">$99/mo</span></td><td>$1,000</td><td>$300</td><td>25%</td><td>$750</td><td>$99</td></tr>
+            <tr><td>50K</td><td><span class="pill pr">$149/mo</span></td><td>$1,500</td><td>$450</td><td>25%</td><td>$1,000</td><td>$99</td></tr>
+            <tr><td>100K</td><td><span class="pill pr">$199/mo</span></td><td>$2,000</td><td>$600</td><td>25%</td><td>$1,750</td><td>$99</td></tr>
+            <tr><td>150K</td><td><span class="pill pr">$249/mo</span></td><td>$3,000</td><td>$900</td><td>25%</td><td>$2,500</td><td>$99</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="hl yellow" style="margin-top:14px"><p><strong>Which path?</strong> Choose <strong>With Activation</strong> if you expect to pass quickly — lower monthly cost, $99 only when funded. Choose <strong>No Activation Fee</strong> for zero surprise costs when you pass. Choose <strong>Flex</strong> for no DLL and no funded consistency rule. Choose <strong>Direct</strong> to skip the evaluation entirely.</p></div>
     </div>
 
     <hr class="divider">
@@ -288,6 +315,54 @@ footer a:hover{color:var(--red3)}
 
     <hr class="divider">
 
+    <!-- FLEX RULES -->
+    <div class="rule-section" id="flex-rules">
+      <h2>🟢 ONYX Flex Rules <span class="phase-badge both">Evaluation + Funded</span></h2>
+      <p class="section-desc">Flex is ONYX's most trader-friendly account. Pass the evaluation — then trade funded with zero daily loss limit and zero consistency rule. Your profit split grows as you prove it.</p>
+      <div class="hl green"><p><strong>The Flex difference:</strong> No DLL anywhere — ever. No consistency rule once funded. 50% consistency applies during evaluation only. Your split ladder grows from 80% to 90% as you stack payouts.</p></div>
+
+      <h3 style="font-size:17px;font-weight:800;color:#fff;margin-bottom:14px;margin-top:24px">Flex Evaluation Phase</h3>
+      <div class="rule-list">
+        <div class="rule-row"><div class="rl"><div class="rn">Profit Target</div><div class="rd">Net profit to pass</div></div><div class="rr"><div class="rv">Same as Sapphire</div><div class="rs">$1,500 / $3,000 / $6,000 / $9,000 by size.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">EOD Drawdown</div><div class="rd">Max loss threshold</div></div><div class="rr"><div class="rv r">Same as Sapphire</div><div class="rs">$1,500 / $2,000 / $3,000 / $5,000 by size. Calculated at close only.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit</div><div class="rd">Intraday loss cap</div></div><div class="rr"><div class="rv g">None — Ever</div><div class="rs">No DLL during evaluation or on the funded account. Your only limit is EOD drawdown.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Eval Consistency Rule</div><div class="rd">During evaluation only</div></div><div class="rr"><div class="rv y">50% max single day</div><div class="rs">During the evaluation, no single day may exceed 50% of total profits. Removed entirely once funded.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Minimum Trading Days</div><div class="rd">Before eval can be passed</div></div><div class="rr"><div class="rv">3 Days</div><div class="rs">Must trade at least 3 days. No time limit.</div></div></div>
+      </div>
+
+      <h3 style="font-size:17px;font-weight:800;color:#fff;margin-bottom:14px;margin-top:24px">Flex Funded Phase</h3>
+      <div class="rule-list">
+        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div><div class="rd">At payout time</div></div><div class="rr"><div class="rv g">None — Zero</div><div class="rs">No consistency rule on Flex funded accounts. Payout any time you're eligible.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit</div><div class="rd">Funded DLL</div></div><div class="rr"><div class="rv g">None — Zero</div><div class="rs">No DLL on Flex funded accounts. EOD drawdown is your only limit.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Profit Split Ladder</div><div class="rd">Your share of profits</div></div><div class="rr"><div class="rv g">80% → 85% → 90%</div><div class="rs">Payouts 1–3: 80%. Payouts 4–6: 85%. Payout 7 onward: 90% locked in permanently.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Payout Frequency</div><div class="rd">How often you can request</div></div><div class="rr"><div class="rv b">Once per week</div><div class="rs">Same as Sapphire — weekly requests, processed in 1–3 business days.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Max Accounts</div><div class="rd">Simultaneous funded accounts</div></div><div class="rr"><div class="rv">Up to 10</div><div class="rs">Same industry-leading 10 account maximum as all ONYX plans.</div></div></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- DIRECT RULES -->
+    <div class="rule-section" id="direct-rules">
+      <h2>⚡ ONYX Direct Rules <span class="phase-badge funded">Instant Funded</span></h2>
+      <p class="section-desc">Skip the evaluation entirely. Purchase a Direct account and your Rithmic credentials are provisioned immediately. Tighter rules, tighter drawdowns — the trade-off for skipping the eval.</p>
+      <div class="hl yellow"><p><strong>No evaluation required.</strong> Direct accounts are funded from day one. In exchange: tighter EOD drawdown, a daily loss limit, and a 25% consistency rule on every payout. No exceptions.</p></div>
+      <div class="rule-list">
+        <div class="rule-row"><div class="rl"><div class="rn">Evaluation Required</div><div class="rd">Do you need to pass first?</div></div><div class="rr"><div class="rv g">No — Funded Immediately</div><div class="rs">Purchase and your account is provisioned within minutes. No profit target, no waiting.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">EOD Drawdown</div><div class="rd">Max loss threshold — tighter than Sapphire</div></div><div class="rr"><div class="rv r">Tight — See table above</div><div class="rs">25K=$1,000 · 50K=$1,500 · 100K=$2,000 · 150K=$3,000. Tighter than Sapphire because no eval filter.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Daily Loss Limit</div><div class="rd">Intraday loss cap — always active</div></div><div class="rr"><div class="rv r">30% of drawdown</div><div class="rs">25K=$300 · 50K=$450 · 100K=$600 · 150K=$900. Hitting DLL pauses trading for the day. Account is NOT failed.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Consistency Rule</div><div class="rd">Applied on every payout request</div></div><div class="rr"><div class="rv r">25% max single day</div><div class="rs">No single trading day may exceed 25% of your total net profits since your last payout. Stricter than Sapphire's 40%.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Min Qualifying Days</div><div class="rd">Before first payout</div></div><div class="rr"><div class="rv">5 Days ≥ $200</div><div class="rs">Must have 5 profitable trading days with at least $200 profit each before submitting your first payout request.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Payout Cap</div><div class="rd">Max per request — lower than Sapphire</div></div><div class="rr"><div class="rv">Per Size</div><div class="rs">25K=$750 · 50K=$1,000 · 100K=$1,750 · 150K=$2,500. Half of Sapphire caps to protect ONYX risk exposure.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Profit Split</div><div class="rd">Your share</div></div><div class="rr"><div class="rv">80% to Trader</div><div class="rs">80/20 split. No ladder on Direct — fixed at 80%.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Overnight / Weekend Holds</div><div class="rd">After session close</div></div><div class="rr"><div class="rv r">Not Allowed</div><div class="rs">All positions must be closed before end of session. Same as Sapphire funded accounts.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Max Accounts</div><div class="rd">Simultaneous accounts</div></div><div class="rr"><div class="rv">Up to 10</div><div class="rs">Same 10 account maximum as all ONYX plans. Double the limit of every other instant funded firm.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Reset Price</div><div class="rd">If account is breached</div></div><div class="rr"><div class="rv">$99 flat</div><div class="rs">$99 for all Direct account sizes. Slightly higher than Sapphire/Flex resets due to tighter risk profile.</div></div></div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
     <!-- INSTRUMENTS -->
     <div class="rule-section" id="instruments">
       <h2>Allowed Instruments <span class="phase-badge both">Both Phases</span></h2>
@@ -339,6 +414,9 @@ footer a:hover{color:var(--red3)}
         <div class="rule-row"><div class="rl"><div class="rn">Diamond Account</div></div><div class="rr"><div class="rs">ONYX's funded account. Awarded after passing the Sapphire evaluation. Trade with firm capital and withdraw 80% of profits weekly.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Micro Contracts</div></div><div class="rr"><div class="rs">Micro futures (MES, MNQ, etc.) are 1/10th the size of a standard contract. Your contract limit counts 10 micros as 1 standard contract.</div></div></div>
         <div class="rule-row"><div class="rl"><div class="rn">Reset</div></div><div class="rr"><div class="rs">If you breach EOD drawdown during evaluation, your account fails. Purchase a reset for $79 (flat for all account sizes) to restart with a fresh account at the same size.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">ONYX Flex</div></div><div class="rr"><div class="rs">ONYX's freedom evaluation account. No DLL anywhere — ever. 50% consistency during evaluation only, zero consistency rule once funded. Profit split ladder: 80% → 85% → 90% as you stack payouts.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">ONYX Direct</div></div><div class="rr"><div class="rs">ONYX's instant funded account. No evaluation required — provisioned within minutes of purchase. Tighter drawdown, daily loss limit, and 25% consistency rule on every payout. 10 accounts allowed.</div></div></div>
+        <div class="rule-row"><div class="rl"><div class="rn">Profit Split Ladder</div></div><div class="rr"><div class="rs">A Flex exclusive feature. Your profit split starts at 80% and grows to 85% after your 4th payout, then locks at 90% permanently after your 7th payout.</div></div></div>
       </div>
     </div>
 
@@ -365,8 +443,10 @@ footer a:hover{color:var(--red3)}
 function switchTab(type,btn){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('tab-noact').style.display=type==='noact'?'block':'none';
-  document.getElementById('tab-withact').style.display=type==='withact'?'block':'none';
+  ['noact','withact','flex','direct'].forEach(t=>{
+    const el=document.getElementById('tab-'+t);
+    if(el) el.style.display=t===type?'block':'none';
+  });
 }
 const sections=document.querySelectorAll('.rule-section,.rules-hero');
 const links=document.querySelectorAll('.sidebar a');
