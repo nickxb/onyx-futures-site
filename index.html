@@ -240,7 +240,7 @@ footer{border-top:1px solid var(--line);padding:48px 40px 32px;background:var(--
   <div class="stat"><div class="stat-val">3</div><div class="stat-label">Min Trading Days</div></div>
   <div class="stat"><div class="stat-val">10</div><div class="stat-label">Max Accounts</div></div>
   <div class="stat"><div class="stat-val">EOD</div><div class="stat-label">Drawdown Type</div></div>
-  <div class="stat"><div class="stat-val">$24</div><div class="stat-label">Starting From</div></div>
+  <div class="stat"><div class="stat-val">3</div><div class="stat-label">Account Types</div></div>
 </div>
 
 <!-- DIFFERENTIATORS -->
@@ -374,9 +374,11 @@ footer{border-top:1px solid var(--line);padding:48px 40px 32px;background:var(--
       </div>
     </div>
 
-    <div class="pricing-tabs">
-      <button class="ptab active" onclick="showPricing('noact',event)">No Activation Fee</button>
-      <button class="ptab" onclick="showPricing('withact',event)">With Activation ($99)</button>
+    <div class="pricing-tabs" style="flex-wrap:wrap;gap:6px">
+      <button class="ptab active" onclick="showPricing('noact',event)">Sapphire — No Activation</button>
+      <button class="ptab" onclick="showPricing('withact',event)">Sapphire — With Activation</button>
+      <button class="ptab" onclick="showPricing('flex',event)">🟢 Flex</button>
+      <button class="ptab" onclick="showPricing('direct',event)">⚡ Direct</button>
     </div>
 
     <!-- NO ACTIVATION FEE — 30% off applied -->
@@ -514,6 +516,142 @@ footer{border-top:1px solid var(--line);padding:48px 40px 32px;background:var(--
         <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 150K Eval</a>
       </div>
     </div>
+    <!-- FLEX PRICING -->
+    <div class="pricing-grid pricing-flex" style="display:none">
+      <div class="price-card">
+        <div class="price-size">25K</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$79</span></div>
+        <div class="price-amount">$55<span>/mo</span></div>
+        <div class="price-act" style="color:#34d399;font-weight:700">✓ No DLL · No funded consistency</div>
+        <ul class="price-rules">
+          <li>$1,500 profit target</li>
+          <li>$1,500 EOD drawdown</li>
+          <li>No DLL — ever</li>
+          <li>50% consistency (eval only)</li>
+          <li>80% → 90% split ladder</li>
+          <li>Reset: $79 flat</li>
+        </ul>
+        <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 25K Flex</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-size">50K</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$119</span></div>
+        <div class="price-amount">$83<span>/mo</span></div>
+        <div class="price-act" style="color:#34d399;font-weight:700">✓ No DLL · No funded consistency</div>
+        <ul class="price-rules">
+          <li>$3,000 profit target</li>
+          <li>$2,000 EOD drawdown</li>
+          <li>No DLL — ever</li>
+          <li>50% consistency (eval only)</li>
+          <li>80% → 90% split ladder</li>
+          <li>Reset: $79 flat</li>
+        </ul>
+        <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 50K Flex</a>
+      </div>
+      <div class="price-card">
+        <div class="price-size">100K</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$159</span></div>
+        <div class="price-amount">$111<span>/mo</span></div>
+        <div class="price-act" style="color:#34d399;font-weight:700">✓ No DLL · No funded consistency</div>
+        <ul class="price-rules">
+          <li>$6,000 profit target</li>
+          <li>$3,000 EOD drawdown</li>
+          <li>No DLL — ever</li>
+          <li>50% consistency (eval only)</li>
+          <li>80% → 90% split ladder</li>
+          <li>Reset: $79 flat</li>
+        </ul>
+        <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 100K Flex</a>
+      </div>
+      <div class="price-card">
+        <div class="price-size">150K</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$199</span></div>
+        <div class="price-amount">$139<span>/mo</span></div>
+        <div class="price-act" style="color:#34d399;font-weight:700">✓ No DLL · No funded consistency</div>
+        <ul class="price-rules">
+          <li>$9,000 profit target</li>
+          <li>$5,000 EOD drawdown</li>
+          <li>No DLL — ever</li>
+          <li>50% consistency (eval only)</li>
+          <li>80% → 90% split ladder</li>
+          <li>Reset: $79 flat</li>
+        </ul>
+        <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Start 150K Flex</a>
+      </div>
+    </div>
+
+    <!-- DIRECT PRICING -->
+    <div class="pricing-grid pricing-direct" style="display:none">
+      <div class="price-card">
+        <div class="price-size">25K</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$99</span></div>
+        <div class="price-amount">$69<span>/mo</span></div>
+        <div class="price-act" style="color:#fbbf24;font-weight:700">⚡ No evaluation — funded today</div>
+        <ul class="price-rules">
+          <li>No evaluation required</li>
+          <li>$1,000 EOD drawdown</li>
+          <li>25% consistency rule</li>
+          <li>$750 max payout</li>
+          <li>5 qualifying days first</li>
+          <li>Reset: $99 flat</li>
+        </ul>
+        <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Get 25K Direct</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-size">50K</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$149</span></div>
+        <div class="price-amount">$104<span>/mo</span></div>
+        <div class="price-act" style="color:#fbbf24;font-weight:700">⚡ No evaluation — funded today</div>
+        <ul class="price-rules">
+          <li>No evaluation required</li>
+          <li>$1,500 EOD drawdown</li>
+          <li>25% consistency rule</li>
+          <li>$1,000 max payout</li>
+          <li>5 qualifying days first</li>
+          <li>Reset: $99 flat</li>
+        </ul>
+        <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Get 50K Direct</a>
+      </div>
+      <div class="price-card">
+        <div class="price-size">100K</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$199</span></div>
+        <div class="price-amount">$139<span>/mo</span></div>
+        <div class="price-act" style="color:#fbbf24;font-weight:700">⚡ No evaluation — funded today</div>
+        <ul class="price-rules">
+          <li>No evaluation required</li>
+          <li>$2,000 EOD drawdown</li>
+          <li>25% consistency rule</li>
+          <li>$1,750 max payout</li>
+          <li>5 qualifying days first</li>
+          <li>Reset: $99 flat</li>
+        </ul>
+        <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Get 100K Direct</a>
+      </div>
+      <div class="price-card">
+        <div class="price-size">150K</div>
+        <div class="launch-badge">🔥 30% OFF</div>
+        <div class="price-launch"><span class="price-original">$249</span></div>
+        <div class="price-amount">$174<span>/mo</span></div>
+        <div class="price-act" style="color:#fbbf24;font-weight:700">⚡ No evaluation — funded today</div>
+        <ul class="price-rules">
+          <li>No evaluation required</li>
+          <li>$3,000 EOD drawdown</li>
+          <li>25% consistency rule</li>
+          <li>$2,500 max payout</li>
+          <li>5 qualifying days first</li>
+          <li>Reset: $99 flat</li>
+        </ul>
+        <a href="https://dashboard.onyx-futures.com/evaluations.html" class="price-cta">Get 150K Direct</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -534,7 +672,7 @@ footer{border-top:1px solid var(--line);padding:48px 40px 32px;background:var(--
           <tr><td>Min trading days</td><td class="onyx-col check">3 ✓</td><td>2</td><td class="check">0 ✓</td></tr>
           <tr><td>Max simultaneous accounts</td><td class="onyx-col check">10 ✓</td><td class="cross">5</td><td>20</td></tr>
           <tr><td>Weekly payouts</td><td class="onyx-col check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
-          <tr><td>Profit split</td><td class="onyx-col">80%</td><td>90%</td><td>90–100%</td></tr>
+          <tr><td>Profit split</td><td class="onyx-col check">80%→90% (Flex) ✓</td><td>90%</td><td>90–100%</td></tr>
           <tr><td>Platform</td><td class="onyx-col">Rithmic</td><td>Tradovate / ProjectX</td><td>Rithmic / Tradovate</td></tr>
           <tr><td>Reset price</td><td class="onyx-col check">$79 flat ✓</td><td class="dash">Varies by size</td><td class="dash">Varies by size</td></tr>
           <tr><td>50K with activation price</td><td class="onyx-col check">$45/mo ✓</td><td>$49/mo + $149 act.</td><td>$207/mo standard</td></tr>
@@ -560,6 +698,8 @@ footer{border-top:1px solid var(--line);padding:48px 40px 32px;background:var(--
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What platform do you use? <span class="arrow">+</span></button><div class="faq-a">Rithmic. You can connect with NinjaTrader, R|Trader Pro, or any Rithmic-compatible platform. Institutional-grade execution, ultra-low latency, real CME data.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the reset price? <span class="arrow">+</span></button><div class="faq-a">$79 flat — same price regardless of account size. If you breach EOD drawdown during evaluation, purchase a reset to restart with a fresh account at the same size.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What can I trade? <span class="arrow">+</span></button><div class="faq-a">Futures contracts on CME, COMEX, NYMEX, and CBOT. This includes ES, NQ, CL, GC, ZC, ZS, and all micro equivalents. Stocks, options, forex, crypto, and CFDs are not permitted.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is ONYX Flex? <span class="arrow">+</span></button><div class="faq-a">Flex is ONYX's freedom account. You still pass a one-step evaluation, but once funded there is zero daily loss limit and zero consistency rule — ever. A 50% consistency rule applies during the evaluation only. Your profit split also grows from 80% to 85% (payout 4) to 90% (payout 7+) and stays there permanently.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is ONYX Direct? <span class="arrow">+</span></button><div class="faq-a">Direct is ONYX's instant funded account. No evaluation required — purchase and your Rithmic credentials are provisioned within minutes. The trade-off: tighter EOD drawdown, a daily loss limit (30% of drawdown), and a 25% consistency rule on every payout. Still offers up to 10 accounts — double the limit of every other instant funded firm in the industry.</div></div>
     </div>
   </div>
 </section>
@@ -623,9 +763,12 @@ footer{border-top:1px solid var(--line);padding:48px 40px 32px;background:var(--
 function showPricing(type, e) {
   document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
   e.target.classList.add('active');
-  document.querySelector('.pricing-noact').classList.remove('show');
-  document.querySelector('.pricing-withact').classList.remove('show');
-  document.querySelector(type === 'noact' ? '.pricing-noact' : '.pricing-withact').classList.add('show');
+  document.querySelectorAll('.pricing-noact,.pricing-withact,.pricing-flex,.pricing-direct').forEach(el => {
+    el.style.display = 'none'; el.classList.remove('show');
+  });
+  const map = { noact: '.pricing-noact', withact: '.pricing-withact', flex: '.pricing-flex', direct: '.pricing-direct' };
+  const target = document.querySelector(map[type]);
+  if (target) { target.style.display = 'grid'; target.classList.add('show'); }
 }
 
 function toggleFaq(btn) {
